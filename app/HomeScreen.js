@@ -1,10 +1,8 @@
 import React from 'react';
-import { Notifications } from 'expo';
 import { StyleSheet, Image, View, Dimensions, Text, Alert, TouchableOpacity, Platform, ScrollView } from 'react-native';
 import { Container, Content, Header, Body, Title, Button, List, ListItem, Right, Footer } from 'native-base';
 import { Col, Row, Grid } from 'react-native-easy-grid';
 import PopoverTooltip from 'react-native-popover-tooltip';
-import Components from 'expo';
 import _ from 'lodash';
 import I18n from 'i18n-js';
 
@@ -13,7 +11,7 @@ require('./Locale');
 import tips from './tips';
 import EMNotification from './EMNotification';
 import RssFeed from './RssFeed';
-import IntroScreen from './IntroScreen';
+//import IntroScreen from './IntroScreen';
 import { register, getToken } from './Registration';
 
 class Cell extends React.Component {
@@ -78,8 +76,8 @@ export default class HomeIntro extends React.Component {
   
   render() {
     let { setting } = this.props.screenProps;
-    if(this.state.intro) 
-      return <IntroScreen  {...this.props} doneIntro={this._doneIntro.bind(this)}/>;
+    //if(this.state.intro) 
+      //return <IntroScreen  {...this.props} doneIntro={this._doneIntro.bind(this)}/>;
     return <HomeScreen {...this.props}/> 
   }
 }
@@ -113,8 +111,7 @@ class HomeScreen extends React.Component {
     this._getLocation();
   }
 
-  componentWillUnmount() {
-  }
+  componentWillUnmount() {}
 
   notificationHandler(notification) {
     let [type, title, body] = notification.data;
@@ -189,12 +186,7 @@ class HomeScreen extends React.Component {
                   'MyPrayer',
                   { refreshStatus: () => this._refreshStatus() },
                 ],
-                [
-                  'My Quran',
-                  require('./assets/Main-MyQuranLow.png'),
-                  'MyQuran',
-                  { refreshStatus: () => this._refreshStatus() },
-                ],
+                ['My Quran', require('./assets/Main-MyQuranLow.png'), 'MyQuran', { refreshStatus: () => this._refreshStatus() }],
                 [
                   'Other Activity',
                   require('./assets/Main-OtherActivityLow.png'),
@@ -209,20 +201,10 @@ class HomeScreen extends React.Component {
                   'PrayerTime',
                   { refreshStatus: () => this._refreshStatus() },
                 ],
-                [
-                  'Books',
-                  require('./assets/Main-BookListLow.png'),
-                  'BookList',
-                  { refreshStatus: () => this._refreshStatus() },
-                ],
+                ['Books', require('./assets/Main-BookListLow.png'), 'BookList', { refreshStatus: () => this._refreshStatus() }],
                 ['Dhikr', require('./assets/Main-DhikrLow.png'), 'Dhikr', { refreshStatus: () => this._refreshStatus() }],
                 ['Qibla', require('./assets/Main-QiblaLow.png'), 'Qibla'],
-                [
-                  'Settings',
-                  require('./assets/Main-SettingLow.png'),
-                  'Setting',
-                  { onGoBack: () => this._checkLocaleChange() },
-                ],
+                ['Settings', require('./assets/Main-SettingLow.png'), 'Setting', { onGoBack: () => this._checkLocaleChange() }],
                 ['Help', require('./assets/Main-HelpLow.png'), 'Help', { refreshStatus: () => this._refreshStatus() }],
                 [],
               ],

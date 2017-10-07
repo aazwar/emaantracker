@@ -7,7 +7,7 @@ import { Col, Row, Grid } from 'react-native-easy-grid';
 export default class ShareScreen extends React.Component {
   render() {
     let w = Dimensions.get('window');
-    let listItem = { backgroundColor: 'transparent'};
+    let listItem = { backgroundColor: 'transparent' };
     return (
       <View>
         <ListItem style={listItem}>

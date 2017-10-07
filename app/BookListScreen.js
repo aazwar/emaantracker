@@ -1,4 +1,4 @@
-import Expo, { FileSystem, WebBrowser } from 'expo';
+import FileSystem from 'react-native-fs';
 import React from 'react';
 import { StyleSheet, Text, Image, Dimensions, Alert, TouchableOpacity, Linking } from 'react-native';
 import { Container, Content, Header, Body, Title, Button, Left, Right, Icon, View, Spinner, Footer } from 'native-base';
@@ -56,14 +56,15 @@ export default class BookListScreen extends React.Component {
     }*/
     const url = 'http://docs.google.com/viewer?embedded=true&url=' + encodeURI(server + book.file);
     //console.log(url);
-    WebBrowser.openBrowserAsync(url);
+    this.props.navigation.navigate('BookScreen', { url });
+    /*WebBrowser.openBrowserAsync(url);*/
     let db = new Db();
     let pages = 1;
-    let date = moment().format('YYYY-MM-01')
+    let date = moment().format('YYYY-MM-01');
     let rec = await db.select_query('SELECT pages FROM reading WHERE date = ? AND id = 0', [date]);
     if (rec && rec.length) {
       pages += rec[0].pages;
-    } 
+    }
     db.store_reading(date, 0, pages);
     //Linking.openURL(dir + book.file);
     //this.props.navigation.navigate('Book', { book });
@@ -82,7 +83,7 @@ export default class BookListScreen extends React.Component {
     fbooks = fbooks.map(cat => {
       let books = cat.books;
       books = Object.keys(books).map(k => books[k]);
-      if(cols == 4) {
+      if (cols == 4) {
         if (books.length % 4) books.push(...[{}, {}, {}, {}].splice(books.length % 4, 4));
       } else {
         if (books.length % 3) books.push(...[{}, {}, {}].splice(books.length % 3, 3));
@@ -94,7 +95,7 @@ export default class BookListScreen extends React.Component {
     return (
       <Image source={require('./assets/bg2.jpg')} style={{ width: w.width, flex: 1, resizeMode: 'cover' }}>
         <Container>
-          <Header style={{ backgroundColor: '#A9DBDF',}}>
+          <Header style={{ backgroundColor: '#A9DBDF' }}>
             <Left>
               <Button transparent onPress={() => this.props.navigation.goBack()}>
                 <Icon name="arrow-back" />

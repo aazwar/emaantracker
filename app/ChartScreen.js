@@ -170,7 +170,7 @@ class BarChartColumnBasic extends Component {
     return (
       <Image source={require('./assets/bg2.jpg')} style={{ flex: 1, width: w.width, resizeMode: 'cover' }}>
         <Container>
-          <Header style={{ backgroundColor: '#A9DBDF',}}>
+          <Header style={{ backgroundColor: '#A9DBDF' }}>
             <Left>
               <Button transparent onPress={() => this.props.navigation.goBack()}>
                 <Icon name="arrow-back" />

@@ -28,7 +28,9 @@ export default class ActivityScreen extends React.Component {
             </Button>
           </Left>
           <Body>
-            <Title style={{ width: 250 }}>{I18n.t('Dhikr')}</Title>
+            <Title style={{ width: 250 }}>
+              {I18n.t('Dhikr')}
+            </Title>
           </Body>
           <Right />
         </Header>

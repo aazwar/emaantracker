@@ -3,13 +3,12 @@ import { PixelRatio, StyleSheet, Text, Image, Dimensions, AsyncStorage } from 'r
 import { Container, Content, Header, Body, Title, Button, Left, Right, Icon, View } from 'native-base';
 import { H1, H2, H3 } from 'native-base';
 import { Col, Row, Grid } from 'react-native-easy-grid';
-import Components from 'expo';
+import LinearGradient from 'react-native-linear-gradient';
 import moment from 'moment';
 import hijri from 'moment-hijri';
 require('moment-duration-format');
 import DateTimePicker from 'react-native-modal-datetime-picker';
 import I18n from 'i18n-js';
-
 import Db from './db';
 import { getPrayerTimes } from './Util';
 import { CheckBox } from './ETComponents';
@@ -173,7 +172,7 @@ export default class MyPrayerScreen extends React.Component {
     return (
       <Image source={require('./assets/bg2.jpg')} style={{ flex: 1, width: w.width, resizeMode: 'cover' }}>
         <Container>
-          <Header style={{ backgroundColor: '#A9DBDF',}}>
+          <Header style={{ backgroundColor: '#A9DBDF' }}>
             <Left>
               <Button transparent onPress={() => this.props.navigation.goBack()}>
                 <Icon name="arrow-back" />
@@ -265,14 +264,16 @@ export default class MyPrayerScreen extends React.Component {
                 );
               })}
               <Row style={{ justifyContent: 'center', margin: 10 }}>
-                <Components.LinearGradient
+                <LinearGradient
                   colors={['#34618C', 'grey', '#34618C']}
                   style={{ padding: 5, paddingLeft: 30, paddingRight: 30, borderRadius: 15 }}>
-                  <Text style={styles.countdown}>{I18n.t('UPCOMING PRAYER')}</Text>
+                  <Text style={styles.countdown}>
+                    {I18n.t('UPCOMING PRAYER')}
+                  </Text>
                   <Text style={styles.countdown}>
                     {this.state.nextPrayer} {this.state.nextPrayerTime}
                   </Text>
-                </Components.LinearGradient>
+                </LinearGradient>
               </Row>
               <Row>
                 <View style={{ flex: 1 }}>

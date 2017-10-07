@@ -1,5 +1,4 @@
 import React from 'react';
-import Expo from 'expo';
 import { StyleSheet, Text, View, Dimensions, Image, Share } from 'react-native';
 import { Container, Content, Header, Body, Title, Button, Left, Right, Icon } from 'native-base';
 import { CheckBox, List, ListItem, Separator, Badge } from 'native-base';
@@ -11,7 +10,7 @@ import Db from './db';
 import DateTimePicker from 'react-native-modal-datetime-picker';
 import SimpleStepper from 'react-native-simple-stepper';
 import I18n from 'i18n-js';
-import { FontAwesome } from '@expo/vector-icons';
+import { FontAwesome } from './Icons';
 
 import Constants from './Constants';
 
@@ -91,10 +90,17 @@ export default class ReportScreen extends React.Component {
     const sum = this.state.salah_summary.reduce((a, b) => a.concat(b), []).join(',');
     const gzip = require('gzip-js');
     const base64 = require('base64-js');
-    let data = period + salah + other + `${sum}|` + this.state.dhikr_summary.join('') + this.state.quran_summary.join('') + setting.fullName;
+    let data =
+      period +
+      salah +
+      other +
+      `${sum}|` +
+      this.state.dhikr_summary.join('') +
+      this.state.quran_summary.join('') +
+      setting.fullName;
     let code = base64.fromByteArray(gzip.zip(data));
     Share.share({
-      message: `Br./Sr. ${setting.fullName || 'Fulan' } has shared his Emaan Tracker report:
+      message: `Br./Sr. ${setting.fullName || 'Fulan'} has shared his Emaan Tracker report:
 
 ${Constants.emaanTrackerUrl}/pdf/report/monthly?${code}`,
       title: 'Emaan Tracker Report',
@@ -112,7 +118,7 @@ ${Constants.emaanTrackerUrl}/pdf/report/monthly?${code}`,
             onConfirm={this._datePicked.bind(this)}
             onCancel={this._hideDatePicker.bind(this)}
           />
-          <Header style={{ backgroundColor: '#A9DBDF',}}>
+          <Header style={{ backgroundColor: '#A9DBDF' }}>
             <Left>
               <Button transparent onPress={() => this.props.navigation.goBack()}>
                 <Icon name="arrow-back" />

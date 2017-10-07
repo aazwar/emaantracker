@@ -1,4 +1,3 @@
-import Expo from 'expo';
 import React from 'react';
 import { StyleSheet, Text, View, Slider, Image, Dimensions, Alert } from 'react-native';
 import { Container, Content, Header, Body, Title, Button, Left, Right, Icon } from 'native-base';
@@ -16,7 +15,6 @@ import Constants from './Constants';
 export default class SettingScreen extends React.Component {
   static navigationOptions = { header: null };
   state = {
-    fontLoaded: false,
     fontScale: 1,
     prayTimes: ['04:00', '06:00', '12:00', '15:00', '18:00', '19:00'],
     token: null,
@@ -25,14 +23,6 @@ export default class SettingScreen extends React.Component {
   };
 
   componentWillMount() {
-    Expo.Font
-      .loadAsync({
-        //saleem: require('./assets/fonts/Saleem.ttf'),
-        quran: require('./assets/fonts/noorehira.ttf'),
-        amiri: require('./assets/fonts/amiri-quran.ttf'),
-      })
-      .then(() => this.setState({ fontLoaded: true }));
-
     const { setting } = this.props.screenProps;
     this.setState(setting.values());
     I18n.locale = setting.locale;
@@ -122,21 +112,20 @@ export default class SettingScreen extends React.Component {
   }
 
   render() {
-    if (!this.state.fontLoaded) return null;
     let { setting } = this.props.screenProps;
     const { navigate } = this.props.navigation;
     let w = Dimensions.get('window');
     const styles = StyleSheet.create({
-      section: I18n.isRTL() ? {textAlign: 'right', marginRight: 10 } : { textAlign: 'left'},
-      text: {textAlign: I18n.isRTL() ? 'right' : 'left' },
-      label: {alignSelf: I18n.isRTL() ? 'flex-end' : 'flex-start'},
-    })
-    let textDirStyle = { textAlign: I18n.isRTL() ? 'right' : 'left'};
-    let listItem = { backgroundColor: 'transparent'};
+      section: I18n.isRTL() ? { textAlign: 'right', marginRight: 10 } : { textAlign: 'left' },
+      text: { textAlign: I18n.isRTL() ? 'right' : 'left' },
+      label: { alignSelf: I18n.isRTL() ? 'flex-end' : 'flex-start' },
+    });
+    let textDirStyle = { textAlign: I18n.isRTL() ? 'right' : 'left' };
+    let listItem = { backgroundColor: 'transparent' };
     return (
       <Image source={require('./assets/bg2.jpg')} style={{ flex: 1, width: w.width, resizeMode: 'cover' }}>
         <Container>
-          <Header style={{ backgroundColor: '#A9DBDF',}}>
+          <Header style={{ backgroundColor: '#A9DBDF' }}>
             <Left>
               <Button
                 transparent
@@ -194,7 +183,8 @@ export default class SettingScreen extends React.Component {
                 <Label style={styles.label}>
                   {I18n.t('Full Name')}
                 </Label>
-                <Input style={styles.text}
+                <Input
+                  style={styles.text}
                   placeholder={I18n.t('Full Name Desc')}
                   onChangeText={fullName => this.setState({ fullName })}
                   value={this.state.fullName}
@@ -204,11 +194,12 @@ export default class SettingScreen extends React.Component {
               </Item>
             </ListItem>
             <ListItem style={listItem}>
-              <Item stackedLabel style={{ flex: 1}}>
+              <Item stackedLabel style={{ flex: 1 }}>
                 <Label style={styles.label}>
                   {I18n.t('Email')}
                 </Label>
-                <Input style={styles.text}
+                <Input
+                  style={styles.text}
                   placeholder={I18n.t('Email Desc')}
                   onChangeText={email => this.setState({ email })}
                   autoCapitalize="none"
@@ -237,7 +228,9 @@ export default class SettingScreen extends React.Component {
               </ListItem>}
 
             <Separator bordered>
-              <Text style={styles.section}>{I18n.t('Quran')}</Text>
+              <Text style={styles.section}>
+                {I18n.t('Quran')}
+              </Text>
             </Separator>
             <ListItem style={listItem}>
               <Body>

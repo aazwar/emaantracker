@@ -3,6 +3,10 @@ package com.emaantracker;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.dieam.reactnativepushnotification.ReactNativePushNotificationPackage;
+import com.beefe.picker.PickerViewPackage;
+import com.BV.LinearGradient.LinearGradientPackage;
+import com.devfd.RNGeocoder.RNGeocoderPackage;
 import com.zmxv.RNSound.RNSoundPackage;
 import com.rnfs.RNFSPackage;
 import com.facebook.react.ReactNativeHost;
@@ -25,6 +29,10 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new ReactNativePushNotificationPackage(),
+            new PickerViewPackage(),
+            new LinearGradientPackage(),
+            new RNGeocoderPackage(),
             new RNSoundPackage(),
             new RNFSPackage()
       );

@@ -102,7 +102,6 @@ export default class Db {
     });
   }
 
-
   async select_query(sql, params) {
     return await new Promise(resolve => {
       this.db.transaction(async tx => {
@@ -126,8 +125,8 @@ export default class Db {
         params,
         (_, { insertId, rowsAffected }) => [insertId, rowsAffected],
         (_, err) => console.log(`Err: sql=${sql}, params=${params}\n${err}`)
-      )
-    })
+      );
+    });
   }
 
   async store_salah_data(date, salah, dhikr) {

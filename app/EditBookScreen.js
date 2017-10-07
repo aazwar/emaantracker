@@ -4,7 +4,7 @@ import { Container, Content, Header, Body, Title, Button, Left, Right } from 'na
 import { Icon, Form, Item, Label, Input, ListItem, CheckBox } from 'native-base';
 import I18n from 'i18n-js';
 import Db from './db';
-import { MaterialCommunityIcons, Entypo } from '@expo/vector-icons';
+import { MaterialCommunityIcons, Entypo } from './Icons';
 
 let w = Dimensions.get('window');
 
@@ -61,7 +61,7 @@ export default class EditBookScreen extends React.Component {
     return (
       <Image source={require('./assets/bg2.jpg')} style={{ flex: 1, width: w.width, resizeMode: 'cover' }}>
         <Container>
-          <Header style={{ backgroundColor: '#A9DBDF',}}>
+          <Header style={{ backgroundColor: '#A9DBDF' }}>
             <Left>
               <Button
                 transparent

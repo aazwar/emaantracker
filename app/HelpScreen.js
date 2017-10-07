@@ -10,38 +10,42 @@ import HelpScreenUr from './HelpScreen-ur';
 
 export default class HelpScreen extends React.Component {
   static navigationOptions = { header: null };
-  
+
   _content() {
     const { setting } = this.props.screenProps;
     switch (setting.locale) {
-      case 'id': return (<HelpScreenId/>);
-      case 'ar': return (<HelpScreenAr/>);
-      case 'ur': return (<HelpScreenUr/>);
-    default:  return <HelpScreenEn/>;      
+      case 'id':
+        return <HelpScreenId />;
+      case 'ar':
+        return <HelpScreenAr />;
+      case 'ur':
+        return <HelpScreenUr />;
+      default:
+        return <HelpScreenEn />;
     }
   }
-  
+
   render() {
-      let w = Dimensions.get('window');
-      return (
-        <Image source={require('./assets/bg2.jpg')} style={{ flex: 1, width: w.width, resizeMode: 'cover' }}>
-          <Container>
-            <Header style={{ backgroundColor: '#A9DBDF',}}>
-              <Left>
-                <Button transparent onPress={() => this.props.navigation.goBack()}>
-                  <Icon name="arrow-back" />
-                </Button>
-              </Left>
-              <Body>
-                <Title style={{ width: 250 }}>Help</Title>
-              </Body>
-              <Right />
-            </Header>
-            <Content>
-              {this._content()}
-            </Content>            
-          </Container>
-        </Image>
-    )
+    let w = Dimensions.get('window');
+    return (
+      <Image source={require('./assets/bg2.jpg')} style={{ flex: 1, width: w.width, resizeMode: 'cover' }}>
+        <Container>
+          <Header style={{ backgroundColor: '#A9DBDF' }}>
+            <Left>
+              <Button transparent onPress={() => this.props.navigation.goBack()}>
+                <Icon name="arrow-back" />
+              </Button>
+            </Left>
+            <Body>
+              <Title style={{ width: 250 }}>Help</Title>
+            </Body>
+            <Right />
+          </Header>
+          <Content>
+            {this._content()}
+          </Content>
+        </Container>
+      </Image>
+    );
   }
 }

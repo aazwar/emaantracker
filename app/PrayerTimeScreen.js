@@ -3,7 +3,7 @@ import { PixelRatio, StyleSheet, Text, Image, Dimensions, AsyncStorage } from 'r
 import { Container, Content, Header, Body, Title, Button, Left, Right, Icon, View, ListItem } from 'native-base';
 import { H1, H2, H3 } from 'native-base';
 import { Col, Row, Grid } from 'react-native-easy-grid';
-import Components from 'expo';
+import LinearGradient from 'react-native-linear-gradient';
 import moment from 'moment';
 import hijri from 'moment-hijri';
 require('moment-duration-format');
@@ -152,7 +152,7 @@ export default class PrayerTimeScreen extends React.Component {
     return (
       <Image source={require('./assets/bg2.jpg')} style={{ flex: 1, width: w.width, resizeMode: 'cover' }}>
         <Container>
-          <Header style={{ backgroundColor: '#A9DBDF',}}>
+          <Header style={{ backgroundColor: '#A9DBDF' }}>
             <Left>
               <Button transparent onPress={() => this.props.navigation.goBack()}>
                 <Icon name="arrow-back" />
@@ -219,7 +219,7 @@ export default class PrayerTimeScreen extends React.Component {
                   </Text>
                 </Row>}
               <Row style={{ justifyContent: 'center', margin: 10 }}>
-                <Components.LinearGradient
+                <LinearGradient
                   colors={['#34618C', 'grey', '#34618C']}
                   style={{
                     padding: 5,
@@ -227,15 +227,17 @@ export default class PrayerTimeScreen extends React.Component {
                     paddingRight: 30,
                     borderRadius: 15,
                   }}>
-                  <Text style={styles.countdown}>{I18n.t('UPCOMING PRAYER')}</Text>
+                  <Text style={styles.countdown}>
+                    {I18n.t('UPCOMING PRAYER')}
+                  </Text>
                   <Text style={styles.countdown}>
                     {this.state.nextPrayer} {this.state.nextPrayerTime}
                   </Text>
-                </Components.LinearGradient>
+                </LinearGradient>
               </Row>
               {this.times.map(t => I18n.t(t)).map((time, i) =>
                 <Row key={i} style={{ padding: 10, backgroundColor: i % 2 ? 'rgba(255,255,255,0.5)' : 'rgba(255,255,255,0.2)' }}>
-                  {tablet && <Col style={{ width: 100 }}></Col>}
+                  {tablet && <Col style={{ width: 100 }} />}
                   <Col>
                     <Text style={{ fontWeight: 'bold', fontSize: tablet ? 30 : 15 }}>
                       {time}
@@ -246,7 +248,7 @@ export default class PrayerTimeScreen extends React.Component {
                       {this.state.prayTimes[i].format('hh:mm A')}
                     </Text>
                   </Col>
-                  {tablet && <Col style={{ width: 100 }}></Col>}
+                  {tablet && <Col style={{ width: 100 }} />}
                 </Row>
               )}
             </Grid>

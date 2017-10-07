@@ -8,8 +8,6 @@ import MonthlyActivity from './MonthlyActivityScreen';
 
 export default class ActivityScreen extends React.Component {
   static navigationOptions = { header: null };
-  
-  
 
   render() {
     const { navigate } = this.props.navigation;

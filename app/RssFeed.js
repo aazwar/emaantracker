@@ -1,10 +1,9 @@
-import { WebBrowser } from 'expo';
 import React from 'react';
-import { StyleSheet, View, Image, Dimensions, Text, TouchableOpacity, ScrollView } from 'react-native';
+import { StyleSheet, View, Image, Dimensions, Text, TouchableOpacity, ScrollView, Linking } from 'react-native';
 import GestureRecognizer, { swipeDirections } from 'react-native-swipe-gestures';
 import moment from 'moment';
 import { Col, Row, Grid } from 'react-native-easy-grid';
-import { Entypo } from '@expo/vector-icons';
+import { Entypo } from './Icons';
 import Rss from './rss';
 
 class Items {
@@ -46,6 +45,7 @@ export default class RssFeed extends React.Component {
     try {
       let rss = new Rss();
       await rss.load();
+      console.log('rss:', rss.items);
       if (rss.items.length) {
         this.setState({ items: rss.items.slice(0, 3) });
       }
@@ -100,7 +100,9 @@ export default class RssFeed extends React.Component {
 
   _openLink() {
     const { items, index } = this.state;
-    WebBrowser.openBrowserAsync(items[index].link);
+    //WebBrowser.openBrowserAsync(items[index].link);
+    const url = items[index].link;
+    Linking.openURL(url).catch(err => console.error('An error occurred', err));
   }
 
   render() {

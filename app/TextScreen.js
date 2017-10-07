@@ -1,7 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, Image, Text, Dimensions } from 'react-native';
 import { Container, Content, Header, Footer, FooterTab, Button, Left, Right, Body, Icon, Title } from 'native-base';
-import { Font } from 'expo';
 import PopoverTooltip from 'react-native-popover-tooltip';
 import { Col, Row, Grid } from 'react-native-easy-grid';
 import moment from 'moment';
@@ -12,13 +11,9 @@ import { getPrayerTimes } from './Util';
 
 export default class TextScreen extends React.Component {
   static navigationOptions = { header: null };
-  state = { fontLoaded: false };
   start = moment();
 
   componentWillMount() {
-    Font.loadAsync({
-      amiri: require('./assets/fonts/amiri-quran.ttf'),
-    }).then(() => this.setState({ fontLoaded: true }));
     const { time } = this.props;
     this.book = dhikr(time);
   }
@@ -56,7 +51,6 @@ export default class TextScreen extends React.Component {
   }
 
   render() {
-    if (!this.state.fontLoaded) return null;
     let w = Dimensions.get('window');
     return (
       <Image source={require('./assets/bg2.jpg')} style={{ width: w.width, flex: 1, resizeMode: 'cover' }}>
@@ -102,7 +96,7 @@ export default class TextScreen extends React.Component {
                                 style={{
                                   textAlign: 'right',
                                   marginBottom: 5,
-                                  fontFamily: 'amiri',
+                                  fontFamily: 'Amiri Quran',
                                   fontSize: 20,
                                 }}>
                                 {content.text}

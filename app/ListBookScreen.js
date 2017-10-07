@@ -5,7 +5,7 @@ import { CheckBox, List, ListItem, Separator, Badge } from 'native-base';
 import { Col, Row, Grid } from 'react-native-easy-grid';
 import Db from './db';
 import I18n from 'i18n-js';
-import { FontAwesome, MaterialCommunityIcons } from '@expo/vector-icons';
+import { FontAwesome, MaterialCommunityIcons } from './Icons';
 
 let w = Dimensions.get('window');
 
@@ -33,7 +33,7 @@ export default class ListBookScreen extends React.Component {
     return (
       <Image source={require('./assets/bg2.jpg')} style={{ flex: 1, width: w.width, resizeMode: 'cover' }}>
         <Container>
-          <Header style={{ backgroundColor: '#A9DBDF',}}>
+          <Header style={{ backgroundColor: '#A9DBDF' }}>
             <Left>
               <Button
                 transparent

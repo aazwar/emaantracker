@@ -10,7 +10,7 @@ import DateTimePicker from 'react-native-modal-datetime-picker';
 
 import Setting from './Setting';
 import I18n from 'i18n-js';
-import { Ionicons, Foundation, Octicons } from '@expo/vector-icons';
+import { Ionicons, Foundation, Octicons } from './Icons';
 
 const styles = StyleSheet.create({
   sectionHeader: {
@@ -103,7 +103,7 @@ export default class DailyActivityScreen extends React.Component {
   render() {
     let w = Dimensions.get('window'),
       cw = w.width / 3;
-    let listItem = { backgroundColor: 'transparent'};
+    let listItem = { backgroundColor: 'transparent' };
     return (
       <Image source={require('./assets/bg2.jpg')} style={{ flex: 1, width: w.width, resizeMode: 'cover' }}>
         <Container>

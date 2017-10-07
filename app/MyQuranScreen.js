@@ -3,7 +3,6 @@ import { PixelRatio, StyleSheet, Text, Image, Dimensions } from 'react-native';
 import { Container, Content, Header, Body, Title, Button, Left, Right, Icon, View } from 'native-base';
 import { H1, H2, H3 } from 'native-base';
 import { Col, Row, Grid } from 'react-native-easy-grid';
-import Components from 'expo';
 import PrayerTimes from 'prayer-times';
 import moment from 'moment';
 import hijri from 'moment-hijri';
@@ -110,7 +109,7 @@ export default class SalahScreen extends React.Component {
     return (
       <Image source={require('./assets/bg2.jpg')} style={{ flex: 1, width: w.width, resizeMode: 'cover' }}>
         <Container>
-          <Header style={{ backgroundColor: '#A9DBDF',}}>
+          <Header style={{ backgroundColor: '#A9DBDF' }}>
             <Left>
               <Button transparent onPress={() => this.props.navigation.goBack()}>
                 <Icon name="arrow-back" />

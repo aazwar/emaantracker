@@ -1,10 +1,11 @@
 import React from 'react';
 import { StyleSheet, Text, View, StatusBar, Platform, AppState } from 'react-native';
 import { StackNavigator } from 'react-navigation';
+import Geocoder from 'react-native-geocoder';
+import FileSystem from 'react-native-fs';
 
 import HomeScreen from './HomeScreen';
 import QiblaScreen from './QiblaScreen';
-import SplashScreen from './SplashScreen';
 import BookScreen from './BookScreen';
 import BookListScreen from './BookListScreen';
 import PrayerTimeScreen from './PrayerTimeScreen';
@@ -71,7 +72,10 @@ export default class App extends React.Component {
     this.setting = new Setting();
     this.notification = new EMNotification();
     Promise.all([
-      this.setting.load().then(() => this._checkNotification()),
+      this.setting.load().then(() => {
+        this._checkNotification();
+        this._updateLocation();
+      }),
       this._checkBook(),
     ]).then(() => this.setState({ ready: true }));
   }
@@ -91,8 +95,25 @@ export default class App extends React.Component {
     }
   }
 
+  _updateLocation() {
+    setTimeout(() => {
+      navigator.geolocation.requestAuthorization();
+      navigator.geolocation.getCurrentPosition(
+        loc => {
+          this.setting.location = [loc.coords.latitude, loc.coords.longitude];
+          Geocoder.geocodePosition({ lat: this.setting.location[0], lng: this.setting.location[1] }).then(geo => {
+            setting.reverseGeocode = geo;
+            console.log(setting);
+          });
+        },
+        error => alert(error.message),
+        { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 }
+      );
+    }, 500);
+  }
+
   async _checkNotification() {
-    const { Permissions } = Expo;
+    /*const { Permissions } = Expo;
     Permissions.askAsync(Permissions.NOTIFICATIONS);
     let db = new Db();
     db.check();
@@ -103,30 +124,31 @@ export default class App extends React.Component {
 
     await notification.initSchedule();
     await notification.schedulePrayerNotification(setting, 3);
-    
+
     /*if (!notification.repeated.length) {
       await notification.initSchedule();
     }
     if (notification.scheduled.length < 10) {
       await notification.schedulePrayerNotification(setting, 3);
     }*/
-    if (!setting.token) {
+    /*if (!setting.token) {
       getToken(setting);
-    }
+    }*/
   }
 
-  async _checkBook() {
-    const bookDir = FileSystem.documentDirectory + 'Books';
-    let info = await FileSystem.getInfoAsync(bookDir);
-    if (!info.exists) await FileSystem.makeDirectoryAsync(bookDir);
-    info = await FileSystem.getInfoAsync(bookDir + '/books.json');
-    if (!info.exists) {
-      FileSystem.downloadAsync(Constants.emaanTrackerUrl + '/book/meta', bookDir + '/books.json');
+  _checkBook() {
+    const bookDir = FileSystem.DocumentDirectoryPath + '/Books';
+    if (!FileSystem.exists(bookDir)) FileSystem.mkdir(bookDir);
+    if (!FileSystem.exists(`${bookDir}/books.json`)) {
+      FileSystem.downloadFile()
+      FileSystem.downloadAsync({
+        fromUrl: Constants.emaanTrackerUrl + '/book/meta', 
+        toFile: bookDir + '/books.json'});
     }
   }
 
   render() {
-    if (!this.state.ready) return <Expo.AppLoading />;
+    //if (!this.state.ready) return <Expo.AppLoading />;
 
     return (
       <AppNavigator onNavigationStateChange={null} screenProps={{ setting: this.setting }} /> // <----- Here

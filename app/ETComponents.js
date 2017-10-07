@@ -1,6 +1,6 @@
 import React from 'react';
 import { TouchableOpacity, Platform } from 'react-native';
-import { Ionicons, MaterialIcons } from '@expo/vector-icons';
+import { Ionicons, MaterialIcons } from './Icons';
 
 export class CheckBox extends React.Component {
   render() {

@@ -13,11 +13,11 @@ export default class QiblaScreen extends React.Component {
         }}>
         <Left>
           <Button transparent onPress={() => navigation.goBack()}>
-            <Icon style={{  color: 'white', }} name="arrow-back" />
+            <Icon style={{ color: 'white' }} name="arrow-back" />
           </Button>
         </Left>
         <Body>
-          <Title style={{ width: 250, color: 'white', }}>Qibla</Title>
+          <Title style={{ width: 250, color: 'white' }}>Qibla</Title>
         </Body>
         <Right />
       </Header>

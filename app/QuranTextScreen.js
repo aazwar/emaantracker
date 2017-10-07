@@ -1,4 +1,3 @@
-import Expo, { SQLite } from 'expo';
 import React from 'react';
 import { StyleSheet, View, Image, Dimensions, AppState, ScrollView, FlatList, Picker, Platform } from 'react-native';
 import {
@@ -254,18 +253,18 @@ export default class QuranScreen extends React.PureComponent {
         <Container>
           <Header
             style={{
-              backgroundColor:'transparent',
+              backgroundColor: 'transparent',
             }}>
             <Left>
               <Button transparent onPress={() => this.props.navigation.goBack()}>
-                <Icon style={{color: 'white'  }} name="arrow-back" />
+                <Icon style={{ color: 'white' }} name="arrow-back" />
               </Button>
             </Left>
             <Body transparent>
-              <Title style={{ width: 250, color: 'white', backgroundColor:'transparent', }}>Quran</Title>
+              <Title style={{ width: 250, color: 'white', backgroundColor: 'transparent' }}>Quran</Title>
             </Body>
             <Right>
-              <Button 
+              <Button
                 transparent
                 onPress={async () => {
                   let newState = !this.state.translation;
@@ -273,7 +272,7 @@ export default class QuranScreen extends React.PureComponent {
                   this.state.translation = newState;
                   this._setPage(this.state.page, this.state.translation);
                 }}>
-                <Icon style={{color: 'white'  }} name={this.state.translation ? 'ios-bookmarks-outline' : 'ios-book-outline'} />
+                <Icon style={{ color: 'white' }} name={this.state.translation ? 'ios-bookmarks-outline' : 'ios-book-outline'} />
               </Button>
             </Right>
           </Header>
@@ -319,7 +318,7 @@ class FooterAndroid extends React.Component {
   render() {
     let { page, surahText, setPage } = this.props;
     return (
-      <Footer style={{  backgroundColor: 'transparent' }}>
+      <Footer style={{ backgroundColor: 'transparent' }}>
         <FooterTab style={{ alignItems: 'center', backgroundColor: 'transparent' }}>
           <Text>　</Text>
           <Picker
@@ -350,7 +349,7 @@ class FooterIOS extends React.Component {
   render() {
     let { page, surahText, setPage } = this.props;
     return (
-      <Footer style={{  backgroundColor: 'transparent' }}>
+      <Footer style={{ backgroundColor: 'transparent' }}>
         <RNPicker
           ref={p => (this.surahPicker = p)}
           style={{ height: 260 }}
@@ -443,7 +442,7 @@ class FooterIOS extends React.Component {
         />
         <FooterTab style={{ alignItems: 'center', backgroundColor: 'transparent' }}>
           <Text>　</Text>
-          <Text bordered style={{ width: 35, textAlign: 'center',color: 'white'  }} onPress={() => this.pagePicker.toggle()}>
+          <Text bordered style={{ width: 35, textAlign: 'center', color: 'white' }} onPress={() => this.pagePicker.toggle()}>
             {page}
           </Text>
           <Text style={{ width: 150, textAlign: 'center', color: 'white' }} onPress={() => this.surahPicker.toggle()}>
@@ -469,8 +468,8 @@ class QuranElement extends React.PureComponent {
               backgroundColor: 'rgba(255,255,255,0.5)',
               borderRadius: 10,
               marginBottom: 10,
-			  marginRight: 15,
-			  marginLeft: 15,
+              marginRight: 15,
+              marginLeft: 15,
             }}>
             <Text style={{ textAlign: 'center' }}>
               {this.props.name}
@@ -487,9 +486,9 @@ class QuranElement extends React.PureComponent {
               padding: 5,
               borderRadius: 10,
               marginBottom: 10,
-			  marginRight: 15,
-			  marginLeft: 15,
-			  backgroundColor: 'rgba(174,216,155,0.5)',
+              marginRight: 15,
+              marginLeft: 15,
+              backgroundColor: 'rgba(174,216,155,0.5)',
             }}>
             <Text
               style={{
@@ -530,8 +529,8 @@ class QuranElement extends React.PureComponent {
               backgroundColor: 'rgba(174,216,155,0.5)',
               borderRadius: 10,
               marginBottom: 10,
-			  marginRight: 15,
-			  marginLeft: 15,
+              marginRight: 15,
+              marginLeft: 15,
             }}>
             <Text
               style={{

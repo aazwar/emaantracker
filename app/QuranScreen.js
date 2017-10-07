@@ -80,7 +80,7 @@ export default class QuranScreen extends React.Component {
         onSwipeRight={_ => this._nextPage()}
         style={{ flex: 1, width: this.width }}>
         <Container>
-          <Header style={{ backgroundColor: '#A9DBDF',}}>
+          <Header style={{ backgroundColor: '#A9DBDF' }}>
             <Left>
               <Button transparent onPress={() => this.props.navigation.goBack()}>
                 <Icon name="arrow-back" />
