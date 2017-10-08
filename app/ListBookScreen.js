@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Dimensions, Image, AsyncStorage } from 'react-native';
+import { StyleSheet, Text, View, Dimensions, Image, AsyncStorage, ImageBackground } from 'react-native';
 import { Container, Content, Header, Body, Title, Button, Left, Right, Icon } from 'native-base';
 import { CheckBox, List, ListItem, Separator, Badge } from 'native-base';
 import { Col, Row, Grid } from 'react-native-easy-grid';
@@ -31,7 +31,7 @@ export default class ListBookScreen extends React.Component {
 
   render() {
     return (
-      <Image source={require('./assets/bg2.jpg')} style={{ flex: 1, width: w.width, resizeMode: 'cover' }}>
+      <ImageBackground source={require('./assets/bg2.jpg')} style={{ flex: 1, width: w.width }}>
         <Container>
           <Header style={{ backgroundColor: '#A9DBDF' }}>
             <Left>
@@ -86,7 +86,7 @@ export default class ListBookScreen extends React.Component {
             />
           </Content>
         </Container>
-      </Image>
+      </ImageBackground>
     );
   }
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { PixelRatio, StyleSheet, Text, Image, Dimensions, AsyncStorage } from 'react-native';
+import { PixelRatio, StyleSheet, Text, Image, Dimensions, AsyncStorage, ImageBackground } from 'react-native';
 import { Container, Content, Header, Body, Title, Button, Left, Right, Icon, View } from 'native-base';
 import { H1, H2, H3 } from 'native-base';
 import { Col, Row, Grid } from 'react-native-easy-grid';
@@ -170,7 +170,7 @@ export default class MyPrayerScreen extends React.Component {
 
   render() {
     return (
-      <Image source={require('./assets/bg2.jpg')} style={{ flex: 1, width: w.width, resizeMode: 'cover' }}>
+      <ImageBackground source={require('./assets/bg2.jpg')} style={{ flex: 1, width: w.width }}>
         <Container>
           <Header style={{ backgroundColor: '#A9DBDF' }}>
             <Left>
@@ -233,7 +233,7 @@ export default class MyPrayerScreen extends React.Component {
                     size={1}
                     key={'s' + i}
                     style={{ borderLeftWidth: 1, borderBottomWidth: 1, borderColor: '#35b7c7', justifyContent: 'center' }}>
-                    <Image source={this.prayerIcons[i]} style={{ flex: 1, resizeMode: 'cover', width: icw, height: icw }} />
+                    <Image source={this.prayerIcons[i]} style={{ flex: 1, width: icw, height: icw }} />
                   </Col>
                 )}
               </Row>
@@ -298,7 +298,7 @@ export default class MyPrayerScreen extends React.Component {
             </Grid>
           </Content>
         </Container>
-      </Image>
+      </ImageBackground>
     );
   }
 }

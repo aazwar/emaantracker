@@ -1,7 +1,8 @@
 import React from 'react';
-import { StyleSheet, Image, View, Dimensions, Text } from 'react-native';
+import { StyleSheet, Image, View, Dimensions, Text, DeviceEventEmitter } from 'react-native';
 import { Container, Content, Header, H1, H2, H3, Left, Right, Body, Button, Icon, Title } from 'native-base';
 import { Col, Row, Grid } from 'react-native-easy-grid';
+import { RNLocation as Location } from 'NativeModules';
 import qibla from './qibla';
 
 export default class QiblaScreen extends React.Component {
@@ -38,45 +39,31 @@ export default class QiblaScreen extends React.Component {
   }
 
   async componentDidMount() {
-    const { Location, Permissions } = Expo;
-    const { status } = await Permissions.askAsync(Permissions.LOCATION);
     let { setting } = this.props.screenProps;
-    if (status === 'granted') {
-      Location.getCurrentPositionAsync({
-        enableHighAccuracy: true,
-      }).then(loc => {
-        this.kabaDir = qibla.direction({
-          lat: loc.coords.latitude,
-          long: loc.coords.longitude,
-        });
-        setting.location = [loc.coords.latitude, loc.coords.longitude];
-        this.setState({
-          qibla: `${this.kabaDir.toFixed(1)}º`,
-          position: `${loc.coords.latitude.toFixed(7)},${loc.coords.longitude.toFixed(7)}`,
-        });
-
-        Location.watchHeadingAsync(heading => {
-          this.magHeading = heading.magHeading;
-        }).then(compassPolling => (this.compassPolling = compassPolling));
-        this.timer = setInterval(() => {
-          const rotate = 360 - this.magHeading;
-          let qibla = this.kabaDir - this.magHeading;
-          if (qibla < 0) qibla += 360;
-          this.setState({
-            heading: `${this.magHeading.toFixed(1)}º`,
-            direction: `${rotate.toFixed(1)} deg`,
-            qiblaDir: `${qibla.toFixed(1)} deg`,
-          });
-        }, 200);
+    Location.requestAlwaysAuthorization();
+    Location.startUpdatingHeading();
+    const position = { lat: setting.location[0], long: setting.location[1] };
+    this.kabaDir = qibla.direction(position);
+    this.setState({
+      qibla: `${this.kabaDir.toFixed(1)}º`,
+      position: `${position.lat.toFixed(7)},${position.long.toFixed(7)}`,
+    });
+    this.subscription = DeviceEventEmitter.addListener('headingUpdated', data => {
+      this.magHeading = data.heading;
+      const rotate = 360 - this.magHeading;
+      let qibla = this.kabaDir - this.magHeading;
+      if (qibla < 0) qibla += 360;
+      this.setState({
+        heading: `${this.magHeading.toFixed(1)}º`,
+        direction: `${rotate.toFixed(1)} deg`,
+        qiblaDir: `${qibla.toFixed(1)} deg`,
       });
-    } else {
-      throw new Error('Location permission not granted');
-    }
+    });
   }
 
   componentWillUnmount() {
-    this.compassPolling && this.compassPolling.remove();
-    this.timer && clearInterval(this.timer);
+    this.subscription.remove();
+    Location.stopUpdatingHeading();
   }
 
   render() {
@@ -94,7 +81,7 @@ export default class QiblaScreen extends React.Component {
       },
     });
     return (
-      <Image source={require('./assets/bg-qibla.jpg')} style={{ flex: 1, width, resizeMode: 'cover' }}>
+      <Image source={require('./assets/bg-qibla.jpg')} style={{ flex: 1, width }}>
         <Container padder>
           <Grid>
             <Row

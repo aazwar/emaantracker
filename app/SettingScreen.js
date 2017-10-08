@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Slider, Image, Dimensions, Alert } from 'react-native';
+import { StyleSheet, Text, View, Slider, Image, Dimensions, Alert, ImageBackground } from 'react-native';
 import { Container, Content, Header, Body, Title, Button, Left, Right, Icon } from 'native-base';
 import { Item, Label, Input } from 'native-base';
 import { CheckBox, List, ListItem, Separator } from 'native-base';
@@ -123,7 +123,7 @@ export default class SettingScreen extends React.Component {
     let textDirStyle = { textAlign: I18n.isRTL() ? 'right' : 'left' };
     let listItem = { backgroundColor: 'transparent' };
     return (
-      <Image source={require('./assets/bg2.jpg')} style={{ flex: 1, width: w.width, resizeMode: 'cover' }}>
+      <ImageBackground source={require('./assets/bg2.jpg')} style={{ flex: 1, width: w.width }}>
         <Container>
           <Header style={{ backgroundColor: '#A9DBDF' }}>
             <Left>
@@ -366,7 +366,7 @@ export default class SettingScreen extends React.Component {
             </ListItem>
           </Content>
         </Container>
-      </Image>
+      </ImageBackground>
     );
   }
 }

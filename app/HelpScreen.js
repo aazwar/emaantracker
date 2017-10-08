@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, Dimensions, WebView, Image, TouchableHighlight, Linking } from 'react-native';
+import { StyleSheet, Text, Dimensions, WebView, Image, TouchableHighlight, Linking, ImageBackground } from 'react-native';
 import { Container, Content, Header, Body, Title, Button, Left, Right, Icon, View } from 'native-base';
 import I18n from 'i18n-js';
 
@@ -28,7 +28,7 @@ export default class HelpScreen extends React.Component {
   render() {
     let w = Dimensions.get('window');
     return (
-      <Image source={require('./assets/bg2.jpg')} style={{ flex: 1, width: w.width, resizeMode: 'cover' }}>
+      <ImageBackground source={require('./assets/bg2.jpg')} style={{ flex: 1, width: w.width }}>
         <Container>
           <Header style={{ backgroundColor: '#A9DBDF' }}>
             <Left>
@@ -45,7 +45,7 @@ export default class HelpScreen extends React.Component {
             {this._content()}
           </Content>
         </Container>
-      </Image>
+      </ImageBackground>
     );
   }
 }

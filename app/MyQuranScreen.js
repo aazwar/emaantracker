@@ -1,5 +1,5 @@
 import React from 'react';
-import { PixelRatio, StyleSheet, Text, Image, Dimensions } from 'react-native';
+import { PixelRatio, StyleSheet, Text, Image, Dimensions, ImageBackground } from 'react-native';
 import { Container, Content, Header, Body, Title, Button, Left, Right, Icon, View } from 'native-base';
 import { H1, H2, H3 } from 'native-base';
 import { Col, Row, Grid } from 'react-native-easy-grid';
@@ -107,7 +107,7 @@ export default class SalahScreen extends React.Component {
 
   render() {
     return (
-      <Image source={require('./assets/bg2.jpg')} style={{ flex: 1, width: w.width, resizeMode: 'cover' }}>
+      <ImageBackground source={require('./assets/bg2.jpg')} style={{ flex: 1, width: w.width }}>
         <Container>
           <Header style={{ backgroundColor: '#A9DBDF' }}>
             <Left>
@@ -221,7 +221,7 @@ export default class SalahScreen extends React.Component {
             </Grid>
           </Content>
         </Container>
-      </Image>
+      </ImageBackground>
     );
   }
 }

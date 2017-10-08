@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Dimensions, WebView, Image, Platform } from 'react-native';
+import { View, Text, StyleSheet, Dimensions, WebView, Image, Platform, ImageBackground } from 'react-native';
 import { Container, Content, Header, Body, Title, Button, Left, Right, Icon } from 'native-base';
 import I18n from 'i18n-js';
 import ChartView from 'react-native-highcharts';
@@ -168,7 +168,7 @@ class BarChartColumnBasic extends Component {
     var Highcharts = 'Highcharts';
     let w = Dimensions.get('window');
     return (
-      <Image source={require('./assets/bg2.jpg')} style={{ flex: 1, width: w.width, resizeMode: 'cover' }}>
+      <ImageBackground source={require('./assets/bg2.jpg')} style={{ flex: 1, width: w.width }}>
         <Container>
           <Header style={{ backgroundColor: '#A9DBDF' }}>
             <Left>
@@ -187,7 +187,7 @@ class BarChartColumnBasic extends Component {
             <ChartView style={{ height: 200, margin: 10 }} config={this.state.conf3} />
           </Content>
         </Container>
-      </Image>
+      </ImageBackground>
     );
   }
 }

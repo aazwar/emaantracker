@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Dimensions, Image, AsyncStorage, Alert } from 'react-native';
+import { StyleSheet, Text, View, Dimensions, Image, AsyncStorage, Alert, ImageBackground } from 'react-native';
 import { Container, Content, Header, Body, Title, Button, Left, Right } from 'native-base';
 import { Icon, Form, Item, Label, Input, ListItem, CheckBox } from 'native-base';
 import { Col, Row, Grid } from 'react-native-easy-grid';
@@ -49,7 +49,7 @@ export default class BookRecordScreen extends React.Component {
 
   render() {
     return (
-      <Image source={require('./assets/bg2.jpg')} style={{ flex: 1, width: w.width, resizeMode: 'cover' }}>
+      <ImageBackground source={require('./assets/bg2.jpg')} style={{ flex: 1, width: w.width }}>
         <Container>
           <Header style={{ backgroundColor: '#A9DBDF' }}>
             <Body>
@@ -101,7 +101,7 @@ export default class BookRecordScreen extends React.Component {
             </Form>
           </Content>
         </Container>
-      </Image>
+      </ImageBackground>
     );
   }
 }

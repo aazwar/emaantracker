@@ -140,10 +140,11 @@ export default class App extends React.Component {
     const bookDir = FileSystem.DocumentDirectoryPath + '/Books';
     if (!FileSystem.exists(bookDir)) FileSystem.mkdir(bookDir);
     if (!FileSystem.exists(`${bookDir}/books.json`)) {
-      FileSystem.downloadFile()
+      FileSystem.downloadFile();
       FileSystem.downloadAsync({
-        fromUrl: Constants.emaanTrackerUrl + '/book/meta', 
-        toFile: bookDir + '/books.json'});
+        fromUrl: Constants.emaanTrackerUrl + '/book/meta',
+        toFile: bookDir + '/books.json',
+      });
     }
   }
 

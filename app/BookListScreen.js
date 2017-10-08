@@ -1,6 +1,6 @@
 import FileSystem from 'react-native-fs';
 import React from 'react';
-import { StyleSheet, Text, Image, Dimensions, Alert, TouchableOpacity, Linking } from 'react-native';
+import { StyleSheet, Text, Image, Dimensions, Alert, TouchableOpacity, Linking, ImageBackground } from 'react-native';
 import { Container, Content, Header, Body, Title, Button, Left, Right, Icon, View, Spinner, Footer } from 'native-base';
 import { Col, Row, Grid } from 'react-native-easy-grid';
 import moment from 'moment';
@@ -93,7 +93,7 @@ export default class BookListScreen extends React.Component {
     });
 
     return (
-      <Image source={require('./assets/bg2.jpg')} style={{ width: w.width, flex: 1, resizeMode: 'cover' }}>
+      <ImageBackground source={require('./assets/bg2.jpg')} style={{ width: w.width, flex: 1 }}>
         <Container>
           <Header style={{ backgroundColor: '#A9DBDF' }}>
             <Left>
@@ -160,7 +160,7 @@ export default class BookListScreen extends React.Component {
               <Right />
             </Footer>}
         </Container>
-      </Image>
+      </ImageBackground>
     );
   }
 }

@@ -1,10 +1,24 @@
 import React from 'react';
-import { StyleSheet, Image, View, Dimensions, Text, Alert, TouchableOpacity, Platform, ScrollView } from 'react-native';
+import {
+  StyleSheet,
+  Image,
+  View,
+  Dimensions,
+  Text,
+  Alert,
+  TouchableOpacity,
+  Platform,
+  ScrollView,
+  ImageBackground,
+  DeviceEventEmitter,
+} from 'react-native';
 import { Container, Content, Header, Body, Title, Button, List, ListItem, Right, Footer } from 'native-base';
 import { Col, Row, Grid } from 'react-native-easy-grid';
 import PopoverTooltip from 'react-native-popover-tooltip';
 import _ from 'lodash';
 import I18n from 'i18n-js';
+import { RNLocation as Location } from 'NativeModules';
+import Geocoder from 'react-native-geocoder';
 
 import Db from './db';
 require('./Locale');
@@ -118,20 +132,22 @@ class HomeScreen extends React.Component {
     Alert.alert(title, body, [{ text: 'OK' }], { cancelable: false });
   }
 
-  async _getLocation() {
-    const { Location, Permissions } = Expo;
-    const { status } = await Permissions.askAsync(Permissions.LOCATION);
+  _getLocation() {
     const { setting } = this.props.screenProps;
-    if (status === 'granted') {
-      Location.getCurrentPositionAsync({
-        enableHighAccuracy: true,
-      }).then(loc => {
-        setting.location = [loc.coords.latitude, loc.coords.longitude];
-        Expo.Location.reverseGeocodeAsync(loc.coords).then(geocode => (setting.reverseGeocode = geocode));
-      });
-    } else {
-      Alert.alert('Error', 'Location Permission is not granted', [{ text: 'OK' }], { cancelable: false });
-    }
+    Location.requestAlwaysAuthorization();
+    Location.startUpdatingLocation();
+    let subscription = DeviceEventEmitter.addListener('locationUpdated', loc => {
+      setting.location = [loc.coords.latitude, loc.coords.longitude];
+      let position = { lat: setting.location[0], lng: setting.location[1] };
+      subscription.remove();
+      Location.stopUpdatingLocation();
+      Geocoder.geocodePosition(position)
+        .then(geocode => {
+          setting.reverseGeocode = geocode;
+          console.log(setting);
+        })
+        .catch(err => console.log(err));
+    });
   }
 
   async _checkLocaleChange() {
@@ -155,7 +171,7 @@ class HomeScreen extends React.Component {
     let cols = w.width >= 768 ? 4 : 3;
     let cw = w.width / cols;
     return (
-      <Image source={require('./assets/bg2.jpg')} style={{ width: w.width, flex: 1, resizeMode: 'cover' }}>
+      <ImageBackground source={require('./assets/bg2.jpg')} style={{ width: w.width, flex: 1 }}>
         <Container>
           <Header
             style={{
@@ -226,7 +242,7 @@ class HomeScreen extends React.Component {
             </Image>
           </Footer>
         </Container>
-      </Image>
+      </ImageBackground>
     );
   }
 }

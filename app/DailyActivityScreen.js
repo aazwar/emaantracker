@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Dimensions, Image } from 'react-native';
+import { StyleSheet, Text, View, Dimensions, Image, ImageBackground } from 'react-native';
 import { Container, Content, Header, Body, Title, Button, Left, Right, Icon } from 'native-base';
 import { CheckBox, List, ListItem, Separator } from 'native-base';
 import { Col, Row, Grid } from 'react-native-easy-grid';
@@ -105,7 +105,7 @@ export default class DailyActivityScreen extends React.Component {
       cw = w.width / 3;
     let listItem = { backgroundColor: 'transparent' };
     return (
-      <Image source={require('./assets/bg2.jpg')} style={{ flex: 1, width: w.width, resizeMode: 'cover' }}>
+      <ImageBackground source={require('./assets/bg2.jpg')} style={{ flex: 1, width: w.width }}>
         <Container>
           <DateTimePicker
             isVisible={this.state.datePickerVisible}
@@ -314,7 +314,7 @@ export default class DailyActivityScreen extends React.Component {
             </List>
           </Content>
         </Container>
-      </Image>
+      </ImageBackground>
     );
   }
 }

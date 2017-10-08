@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Image, Text, Dimensions } from 'react-native';
+import { StyleSheet, View, Image, Text, Dimensions, ImageBackground } from 'react-native';
 import { Container, Content, Header, Footer, FooterTab, Button, Left, Right, Body, Icon, Title } from 'native-base';
 import PopoverTooltip from 'react-native-popover-tooltip';
 import { Col, Row, Grid } from 'react-native-easy-grid';
@@ -53,7 +53,7 @@ export default class TextScreen extends React.Component {
   render() {
     let w = Dimensions.get('window');
     return (
-      <Image source={require('./assets/bg2.jpg')} style={{ width: w.width, flex: 1, resizeMode: 'cover' }}>
+      <ImageBackground source={require('./assets/bg2.jpg')} style={{ width: w.width, flex: 1 }}>
         <Container>
           <Content padder>
             {this.book.section.map((section, index) => {
@@ -134,7 +134,7 @@ export default class TextScreen extends React.Component {
             </Text>
           </Content>
         </Container>
-      </Image>
+      </ImageBackground>
     );
   }
 }

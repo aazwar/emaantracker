@@ -249,7 +249,7 @@ export default class QuranScreen extends React.PureComponent {
     let w = Dimensions.get('window');
     let { setting } = this.props.screenProps;
     return (
-      <Image source={require('./assets/quran-bgLow.jpg')} style={{ width: w.width, flex: 1, resizeMode: 'cover' }}>
+      <Image source={require('./assets/quran-bgLow.jpg')} style={{ width: w.width, flex: 1 }}>
         <Container>
           <Header
             style={{
