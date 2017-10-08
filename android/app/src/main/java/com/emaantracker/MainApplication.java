@@ -4,7 +4,6 @@ import android.app.Application;
 
 import com.facebook.react.ReactApplication;
 import com.dieam.reactnativepushnotification.ReactNativePushNotificationPackage;
-import com.beefe.picker.PickerViewPackage;
 import com.BV.LinearGradient.LinearGradientPackage;
 import com.devfd.RNGeocoder.RNGeocoderPackage;
 import com.zmxv.RNSound.RNSoundPackage;
@@ -30,7 +29,6 @@ public class MainApplication extends Application implements ReactApplication {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
             new ReactNativePushNotificationPackage(),
-            new PickerViewPackage(),
             new LinearGradientPackage(),
             new RNGeocoderPackage(),
             new RNSoundPackage(),

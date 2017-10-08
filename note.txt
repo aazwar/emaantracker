@@ -1,0 +1,8 @@
+react-native-location
+- ios component using old include. Patch with patch.sh
+
+react-native-picker must use version 3.0.5
+
+react-native-picker and react-native-picker-android using old PropType import. Change in index.js:
+- remove from import 'react'
+- add import PropTypes from 'prop-type';

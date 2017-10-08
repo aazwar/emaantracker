@@ -19,6 +19,7 @@ import {
 import { Col, Row, Grid } from 'react-native-easy-grid';
 import GestureRecognizer, { swipeDirections } from 'react-native-swipe-gestures';
 import RNPicker from 'react-native-picker';
+import SQLite from 'react-native-sqlite-storage';
 import _ from 'lodash';
 import moment from 'moment';
 
@@ -38,7 +39,6 @@ export default class QuranScreen extends React.PureComponent {
   constructor() {
     super();
     this.state = {
-      fontLoaded: false,
       page: 1,
       pages: [],
       surah: `${surah[0][1]} - ${surah[0][2]}`,
@@ -50,7 +50,7 @@ export default class QuranScreen extends React.PureComponent {
     this.width = Dimensions.get('window').width;
     this.quranSetting = new Quran();
     this.db = SQLite.openDatabase(
-      { name: 'quran.db' },
+      { name: 'quran.db', createFromLocation: '~quran.db' },
       () => {},
       err => {
         console.log('SQL Error: ' + err);
@@ -60,23 +60,13 @@ export default class QuranScreen extends React.PureComponent {
 
   componentWillMount() {
     let { setting } = this.props.screenProps;
-    Expo.Font
-      .loadAsync({
-        quran: require('./assets/fonts/Saleem.ttf'),
-        //quran: require('./assets/fonts/noorehira.ttf'),
-        amiri: require('./assets/fonts/amiri-quran.ttf'),
-      })
-      .then(() => this.quranSetting.load())
-      .then(() => {
-        this.setState(
-          {
-            fontLoaded: true,
-            fontScale: setting.fontScale,
-            translation: setting.quranTranslation,
-          },
-          () => this._setPage(this.quranSetting.page, setting.quranTranslation)
-        );
-      });
+    this.quranSetting
+      .load()
+      .then(() =>
+        this.setState({ fontScale: setting.fontScale, translation: setting.quranTranslation }, () =>
+          this._setPage(this.quranSetting.page, setting.quranTranslation)
+        )
+      );
   }
 
   componentDidMount() {
@@ -245,7 +235,6 @@ export default class QuranScreen extends React.PureComponent {
   }
 
   render() {
-    if (!this.state.fontLoaded) return null;
     let w = Dimensions.get('window');
     let { setting } = this.props.screenProps;
     return (
@@ -494,7 +483,7 @@ class QuranElement extends React.PureComponent {
               style={{
                 textAlign: 'right',
                 marginBottom: 5,
-                fontFamily: 'quran',
+                fontFamily: '_PDMS_Saleem_QuranFont',
                 fontSize: 24 * this.props.fontScale,
               }}>
               {this.props.arabic}
@@ -536,7 +525,7 @@ class QuranElement extends React.PureComponent {
               style={{
                 textAlign: 'right',
                 marginBottom: 5,
-                fontFamily: 'quran',
+                fontFamily: '_PDMS_Saleem_QuranFont',
                 fontSize: 24 * this.props.fontScale,
               }}>
               {this.props.arabic}

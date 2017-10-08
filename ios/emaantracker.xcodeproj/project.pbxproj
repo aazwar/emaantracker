@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -62,7 +61,6 @@
 		C8F6E90FD02C489484A3FE7A /* Roboto_medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7418FDCA61AE49E8800DA17F /* Roboto_medium.ttf */; };
 		D6DBFAF26EC54CDBB9FE34F4 /* OswaldRegular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A3482D9749CA492FB2F05FC3 /* OswaldRegular.ttf */; };
 		D71D94D714F042B4B051F074 /* Oswald-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5D85414E21FE4A4CA961214D /* Oswald-SemiBold.ttf */; };
-		DC6B2256A1EF4FC38CA33BA8 /* libRCTBEEPickerManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A6759E1CDE442BF8206897D /* libRCTBEEPickerManager.a */; };
 		DFC13726AE534843A053C481 /* Roboto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 009B796097FE4DBAABEF5DFD /* Roboto.ttf */; };
 		E3B13734E3F94BC99A9E9E86 /* amiri-quran.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3ED5F4F730ED4914A5AC797D /* amiri-quran.ttf */; };
 		EE821A07A51847CE832ECAD8 /* Oswald-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DF9EE4B48A5D43D590763644 /* Oswald-Medium.ttf */; };
@@ -262,13 +260,6 @@
 			remoteGlobalIDString = 3D3CD9181DE5FBD800167DC4;
 			remoteInfo = "jschelpers-tvOS";
 		};
-		4534B2B91F88820900BE9476 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 422DC2C191B7446995001712 /* RCTBEEPickerManager.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 17D41E551D7EE0CA0031415E;
-			remoteInfo = RCTBEEPickerManager;
-		};
 		4534B3F51F88D7EB00BE9476 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BDEED1410C1746F69C3B198D /* RNLocation.xcodeproj */;
@@ -412,13 +403,11 @@
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
 		26018FD6094E4F988A1A7F50 /* arial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = arial.ttf; path = ../app/assets/fonts/arial.ttf; sourceTree = "<group>"; };
 		26B1810A6735453CAC66A6FC /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/native-base/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
-		2A6759E1CDE442BF8206897D /* libRCTBEEPickerManager.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTBEEPickerManager.a; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* emaantracker-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "emaantracker-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* emaantracker-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "emaantracker-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		31A1B5375F0C4496B33247E5 /* quran.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = quran.ttf; path = ../app/assets/fonts/quran.ttf; sourceTree = "<group>"; };
 		34555F56E6684B8C93190CC1 /* RNFS.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNFS.xcodeproj; path = "../node_modules/react-native-fs/RNFS.xcodeproj"; sourceTree = "<group>"; };
 		3ED5F4F730ED4914A5AC797D /* amiri-quran.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "amiri-quran.ttf"; path = "../app/assets/fonts/amiri-quran.ttf"; sourceTree = "<group>"; };
-		422DC2C191B7446995001712 /* RCTBEEPickerManager.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RCTBEEPickerManager.xcodeproj; path = "../node_modules/react-native-picker/ios/RCTBEEPickerManager.xcodeproj"; sourceTree = "<group>"; };
 		43B3209C8A004F08AD511326 /* libRNLocation.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNLocation.a; sourceTree = "<group>"; };
 		44935E3C1F0545598E20A89C /* noorehira.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = noorehira.ttf; path = ../app/assets/fonts/noorehira.ttf; sourceTree = "<group>"; };
 		4534B41D1F88DBF000BE9476 /* RCTPushNotification.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTPushNotification.xcodeproj; path = "../node_modules/react-native/Libraries/PushNotificationIOS/RCTPushNotification.xcodeproj"; sourceTree = "<group>"; };
@@ -486,7 +475,6 @@
 				F73C1804DAE446C88E1F7907 /* libBVLinearGradient.a in Frameworks */,
 				722300C5A6794426813ED1D1 /* libSQLite.a in Frameworks */,
 				417E8CC504794A2D88692469 /* libsqlite3.0.tbd in Frameworks */,
-				DC6B2256A1EF4FC38CA33BA8 /* libRCTBEEPickerManager.a in Frameworks */,
 				4D0CA67100A049F1B2520E20 /* libRNLocation.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -667,14 +655,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		4534B2B61F88820900BE9476 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				4534B2BA1F88820900BE9476 /* libRCTBEEPickerManager.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		4534B3F21F88D7EB00BE9476 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -756,7 +736,6 @@
 				C89E20E6DBF2492E9CD8E153 /* RNGeocoder.xcodeproj */,
 				5EAA5FA037D449BABBBAFCF6 /* BVLinearGradient.xcodeproj */,
 				E85011C9F1EC42888AF71486 /* SQLite.xcodeproj */,
-				422DC2C191B7446995001712 /* RCTBEEPickerManager.xcodeproj */,
 				BDEED1410C1746F69C3B198D /* RNLocation.xcodeproj */,
 			);
 			name = Libraries;
@@ -964,10 +943,6 @@
 				{
 					ProductGroup = 5E91572E1DD0AC6500FF2AA8 /* Products */;
 					ProjectRef = 5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */;
-				},
-				{
-					ProductGroup = 4534B2B61F88820900BE9476 /* Products */;
-					ProjectRef = 422DC2C191B7446995001712 /* RCTBEEPickerManager.xcodeproj */;
 				},
 				{
 					ProductGroup = ADBDB9201DFEBF0600ED6528 /* Products */;
@@ -1218,13 +1193,6 @@
 			fileType = archive.ar;
 			path = libjschelpers.a;
 			remoteRef = 3DAD3EAE1DF850E9000B6D8A /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		4534B2BA1F88820900BE9476 /* libRCTBEEPickerManager.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libRCTBEEPickerManager.a;
-			remoteRef = 4534B2B91F88820900BE9476 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		4534B3F61F88D7EB00BE9476 /* libRNLocation.a */ = {
@@ -1510,7 +1478,6 @@
 					"$(SRCROOT)/../node_modules/react-native-linear-gradient/BVLinearGradient",
 					"$(SRCROOT)/../node_modules/react-native-sqlite-storage/src/ios",
 					"$(SRCROOT)/../node_modules/react-native-notifications/RNNotifications",
-					"$(SRCROOT)/../node_modules/react-native-picker/ios/RCTBEEPickerManager",
 					"$(SRCROOT)/../node_modules/react-native-location",
 				);
 				INFOPLIST_FILE = emaantrackerTests/Info.plist;
@@ -1518,7 +1485,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -1543,7 +1509,6 @@
 					"$(SRCROOT)/../node_modules/react-native-linear-gradient/BVLinearGradient",
 					"$(SRCROOT)/../node_modules/react-native-sqlite-storage/src/ios",
 					"$(SRCROOT)/../node_modules/react-native-notifications/RNNotifications",
-					"$(SRCROOT)/../node_modules/react-native-picker/ios/RCTBEEPickerManager",
 					"$(SRCROOT)/../node_modules/react-native-location",
 				);
 				INFOPLIST_FILE = emaantrackerTests/Info.plist;
@@ -1551,7 +1516,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -1576,7 +1540,6 @@
 					"$(SRCROOT)/../node_modules/react-native-geocoder/ios/RNGeocoder",
 					"$(SRCROOT)/../node_modules/react-native-linear-gradient/BVLinearGradient",
 					"$(SRCROOT)/../node_modules/react-native-sqlite-storage/src/ios",
-					"$(SRCROOT)/../node_modules/react-native-picker/ios/RCTBEEPickerManager",
 					"$(SRCROOT)/../node_modules/react-native-location",
 				);
 				INFOPLIST_FILE = emaantracker/Info.plist;
@@ -1604,7 +1567,6 @@
 					"$(SRCROOT)/../node_modules/react-native-geocoder/ios/RNGeocoder",
 					"$(SRCROOT)/../node_modules/react-native-linear-gradient/BVLinearGradient",
 					"$(SRCROOT)/../node_modules/react-native-sqlite-storage/src/ios",
-					"$(SRCROOT)/../node_modules/react-native-picker/ios/RCTBEEPickerManager",
 					"$(SRCROOT)/../node_modules/react-native-location",
 				);
 				INFOPLIST_FILE = emaantracker/Info.plist;
@@ -1639,14 +1601,12 @@
 					"$(SRCROOT)/../node_modules/react-native-linear-gradient/BVLinearGradient",
 					"$(SRCROOT)/../node_modules/react-native-sqlite-storage/src/ios",
 					"$(SRCROOT)/../node_modules/react-native-notifications/RNNotifications",
-					"$(SRCROOT)/../node_modules/react-native-picker/ios/RCTBEEPickerManager",
 					"$(SRCROOT)/../node_modules/react-native-location",
 				);
 				INFOPLIST_FILE = "emaantracker-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -1680,14 +1640,12 @@
 					"$(SRCROOT)/../node_modules/react-native-linear-gradient/BVLinearGradient",
 					"$(SRCROOT)/../node_modules/react-native-sqlite-storage/src/ios",
 					"$(SRCROOT)/../node_modules/react-native-notifications/RNNotifications",
-					"$(SRCROOT)/../node_modules/react-native-picker/ios/RCTBEEPickerManager",
 					"$(SRCROOT)/../node_modules/react-native-location",
 				);
 				INFOPLIST_FILE = "emaantracker-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -1716,7 +1674,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.emaantracker-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1741,7 +1698,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.emaantracker-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
