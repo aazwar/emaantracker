@@ -25,7 +25,7 @@ require('./Locale');
 import tips from './tips';
 import EMNotification from './EMNotification';
 import RssFeed from './RssFeed';
-//import IntroScreen from './IntroScreen';
+import IntroScreen from './IntroScreen';
 import { register, getToken } from './Registration';
 
 class Cell extends React.Component {
@@ -90,8 +90,8 @@ export default class HomeIntro extends React.Component {
   
   render() {
     let { setting } = this.props.screenProps;
-    //if(this.state.intro) 
-      //return <IntroScreen  {...this.props} doneIntro={this._doneIntro.bind(this)}/>;
+    if(this.state.intro) 
+      return <IntroScreen  {...this.props} doneIntro={this._doneIntro.bind(this)}/>;
     return <HomeScreen {...this.props}/> 
   }
 }

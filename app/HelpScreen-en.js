@@ -38,7 +38,7 @@ The concept of this App was conceived by below Quranic ayah`}
                   flex: 1,
                   textAlign: 'right',
                   fontSize: 24,
-                  fontFamily: 'amiri',
+                  fontFamily: 'Amiri Quran',
                 }}>{`قَدْ أَفْلَحَ مَن تَزَكَّىٰ `}</Text>
             </Row>
             <Row>

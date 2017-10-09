@@ -41,7 +41,7 @@ export default class ShareScreen extends React.Component {
                   flex: 1,
                   textAlign: 'right',
                   fontSize: 24,
-                  fontFamily: 'amiri',
+                  fontFamily: 'Amiri Quran',
                 }}>{`قَدْ أَفْلَحَ مَن تَزَكَّىٰ `}</Text>
             </Row>
             <Row>

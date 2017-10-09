@@ -161,8 +161,9 @@ export default class QuranScreen extends React.PureComponent {
           tx.executeSql(
             'SELECT * FROM text WHERE page = ?',
             [page],
-            (_, { rows: { _array } }) => {
+            (_, results) => {
               let elements = [];
+              let _array = results.rows.raw();
               elements.push({ type: 'page-start', page, id: `ps${page}` });
               if (translation) {
                 _array.map((fragment, i) => {

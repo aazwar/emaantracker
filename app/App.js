@@ -149,7 +149,7 @@ export default class App extends React.Component {
   }
 
   render() {
-    //if (!this.state.ready) return <Expo.AppLoading />;
+    if (!this.state.ready) return null;
 
     return (
       <AppNavigator onNavigationStateChange={null} screenProps={{ setting: this.setting }} /> // <----- Here
