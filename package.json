@@ -4,7 +4,9 @@
 	"private": true,
 	"scripts": {
 		"prettier": "prettier --write --print-width 130 --single-quote --jsx-bracket-same-line --trailing-comma es5 *.js app/*.js",
-		"clear-cache": "watchman watch-del-all && rm -rf node_modules/ && yarn cache clean && yarn install && npm start -- --reset-cache"
+		"clear-cache": "watchman watch-del-all && rm -rf node_modules/ && yarn cache clean && yarn install && npm start -- --reset-cache",
+    "bundle-ios": "react-native bundle --platform ios --dev false --entry-file index.js --bundle-output ios/main.jsbundle --assets-dest ios",
+    "bundle-android": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res/"
 	},
 	"dependencies": {
 		"base64-js": "^1.2.1",

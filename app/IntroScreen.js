@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Image, Dimensions, Alert } from 'react-native';
+import { StyleSheet, Text, View, Image, ImageBackground, Dimensions, Alert } from 'react-native';
 import { Col, Row, Grid } from 'react-native-easy-grid';
 import { Content, Item, Label, Input, Button } from 'native-base';
 import { List, ListItem, Right } from 'native-base';
@@ -54,7 +54,7 @@ export default class IntroScreen extends React.Component {
           <Image style={{ width, height, resizeMode: 'stretch' }} source={require('./assets/intro/intro-2.png')} />
         </View>
         <View style={styles.slide} key={3}>
-          <Image style={{ width, height, resizeMode: 'stretch' }} source={require('./assets/intro/intro-bg.png')}>
+          <ImageBackground style={{ width, height }} source={require('./assets/intro/intro-bg.png')}>
             <Content padder style={{ margin: 20 }}>
               <ListItem>
                 <Item stackedLabel style={{ flex: 1 }}>
@@ -94,7 +94,7 @@ export default class IntroScreen extends React.Component {
                 </Text>
               </ListItem>
             </Content>
-          </Image>
+          </ImageBackground>
         </View>
       </AppIntro>
     );

@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -42,6 +43,8 @@
 		3B9DB0F50059478AA4873338 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 133CB41A14864D62BA11CDC0 /* Entypo.ttf */; };
 		417E8CC504794A2D88692469 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C742EC048C54A9F8362340F /* libsqlite3.0.tbd */; };
 		4534B44E1F88DC1B00BE9476 /* libRCTPushNotification.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4534B4321F88DBF000BE9476 /* libRCTPushNotification.a */; };
+		45B9D6F91F8B722100E5D855 /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 008F07F21AC5B25A0029DE68 /* main.jsbundle */; };
+		45B9D7241F8B8E6200E5D855 /* assets in Resources */ = {isa = PBXBuildFile; fileRef = 45B9D7231F8B8E6100E5D855 /* assets */; };
 		4D0CA67100A049F1B2520E20 /* libRNLocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 43B3209C8A004F08AD511326 /* libRNLocation.a */; };
 		4D4A2EB4964F406A84472EF1 /* libRNFS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C74DD91D69BA4C3386FDF7B7 /* libRNFS.a */; };
 		590F3E8707FB48F3A54B3805 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0698A263DCCA4F728A8E6774 /* FontAwesome.ttf */; };
@@ -411,6 +414,7 @@
 		43B3209C8A004F08AD511326 /* libRNLocation.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNLocation.a; sourceTree = "<group>"; };
 		44935E3C1F0545598E20A89C /* noorehira.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = noorehira.ttf; path = ../app/assets/fonts/noorehira.ttf; sourceTree = "<group>"; };
 		4534B41D1F88DBF000BE9476 /* RCTPushNotification.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTPushNotification.xcodeproj; path = "../node_modules/react-native/Libraries/PushNotificationIOS/RCTPushNotification.xcodeproj"; sourceTree = "<group>"; };
+		45B9D7231F8B8E6100E5D855 /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = assets; sourceTree = "<group>"; };
 		45EDF0BE91A941C4991C15AE /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/native-base/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
 		4FE8327DF79A4608860D929F /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/native-base/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
 		5920D5E0745446D6A5821708 /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/native-base/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
@@ -572,7 +576,6 @@
 				C71A56DE23634283A554BCD5 /* libBVLinearGradient.a */,
 				B140D7C6BA21419589EB57FE /* libSQLite.a */,
 				7E471E52B31E41798CCE1B7A /* libRNNotifications.a */,
-				2A6759E1CDE442BF8206897D /* libRCTBEEPickerManager.a */,
 				B70D8B6FA6FB4366937EBBC5 /* libRNLocalNotifications.a */,
 				43B3209C8A004F08AD511326 /* libRNLocation.a */,
 			);
@@ -789,6 +792,7 @@
 		E99584A8ABDA4AC9BD73A4D1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				45B9D7231F8B8E6100E5D855 /* assets */,
 				09ABA7B41F8705E00021CC9E /* quran.db */,
 				840A9EF02E2C40A1972169AD /* Oswald-Bold.ttf */,
 				84750A2B5A88483A847E388A /* Oswald-ExtraLight.ttf */,
@@ -1324,11 +1328,13 @@
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 				B3CC6FAE4571418AA8DA74E1 /* Oswald-Bold.ttf in Resources */,
+				45B9D6F91F8B722100E5D855 /* main.jsbundle in Resources */,
 				7C4EEA627F3742B3A9435182 /* Oswald-ExtraLight.ttf in Resources */,
 				0C41B3CFB01044E38EFC986B /* Oswald-Light.ttf in Resources */,
 				EE821A07A51847CE832ECAD8 /* Oswald-Medium.ttf in Resources */,
 				D71D94D714F042B4B051F074 /* Oswald-SemiBold.ttf in Resources */,
 				D6DBFAF26EC54CDBB9FE34F4 /* OswaldRegular.ttf in Resources */,
+				45B9D7241F8B8E6200E5D855 /* assets in Resources */,
 				6DE11E193740478CB69F28B3 /* Saleem.ttf in Resources */,
 				E3B13734E3F94BC99A9E9E86 /* amiri-quran.ttf in Resources */,
 				251474D9914747B382D4B15F /* arial.ttf in Resources */,
@@ -1483,9 +1489,7 @@
 				INFOPLIST_FILE = emaantrackerTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1514,9 +1518,7 @@
 				INFOPLIST_FILE = emaantrackerTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1605,9 +1607,7 @@
 				);
 				INFOPLIST_FILE = "emaantracker-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1644,9 +1644,7 @@
 				);
 				INFOPLIST_FILE = "emaantracker-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1672,9 +1670,7 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "emaantracker-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.emaantracker-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
@@ -1696,9 +1692,7 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "emaantracker-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.emaantracker-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;

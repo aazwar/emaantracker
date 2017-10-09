@@ -72,10 +72,7 @@ export default class App extends React.Component {
     this.setting = new Setting();
     this.notification = new EMNotification();
     Promise.all([
-      this.setting.load().then(() => {
-        this._checkNotification();
-        this._updateLocation();
-      }),
+      this.setting.load(),
       this._checkBook(),
     ]).then(() => this.setState({ ready: true }));
   }
@@ -96,20 +93,17 @@ export default class App extends React.Component {
   }
 
   _updateLocation() {
-    setTimeout(() => {
-      navigator.geolocation.requestAuthorization();
-      navigator.geolocation.getCurrentPosition(
-        loc => {
-          this.setting.location = [loc.coords.latitude, loc.coords.longitude];
-          Geocoder.geocodePosition({ lat: this.setting.location[0], lng: this.setting.location[1] }).then(geo => {
-            setting.reverseGeocode = geo;
-            console.log(setting);
-          });
-        },
-        error => alert(error.message),
-        { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 }
-      );
-    }, 500);
+    navigator.geolocation.requestAuthorization();
+    navigator.geolocation.getCurrentPosition(
+      loc => {
+        this.setting.location = [loc.coords.latitude, loc.coords.longitude];
+        Geocoder.geocodePosition({ lat: this.setting.location[0], lng: this.setting.location[1] }).then(geo => {
+          setting.reverseGeocode = geo;
+        });
+      },
+      error => alert(error.message),
+      { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 }
+    );
   }
 
   async _checkNotification() {
@@ -137,7 +131,7 @@ export default class App extends React.Component {
   }
 
   _checkBook() {
-    const bookDir = FileSystem.DocumentDirectoryPath + '/Books';
+    /*const bookDir = FileSystem.DocumentDirectoryPath + '/Books';
     if (!FileSystem.exists(bookDir)) FileSystem.mkdir(bookDir);
     if (!FileSystem.exists(`${bookDir}/books.json`)) {
       FileSystem.downloadFile();
@@ -145,7 +139,7 @@ export default class App extends React.Component {
         fromUrl: Constants.emaanTrackerUrl + '/book/meta',
         toFile: bookDir + '/books.json',
       });
-    }
+    }*/
   }
 
   render() {

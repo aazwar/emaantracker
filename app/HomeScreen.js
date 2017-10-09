@@ -90,8 +90,8 @@ export default class HomeIntro extends React.Component {
   
   render() {
     let { setting } = this.props.screenProps;
-    if(this.state.intro) 
-      return <IntroScreen  {...this.props} doneIntro={this._doneIntro.bind(this)}/>;
+    //if(this.state.intro) 
+      //return <IntroScreen  {...this.props} doneIntro={this._doneIntro.bind(this)}/>;
     return <HomeScreen {...this.props}/> 
   }
 }
@@ -133,7 +133,7 @@ class HomeScreen extends React.Component {
   }
 
   _getLocation() {
-    const { setting } = this.props.screenProps;
+    let { setting } = this.props.screenProps;
     Location.requestAlwaysAuthorization();
     Location.startUpdatingLocation();
     let subscription = DeviceEventEmitter.addListener('locationUpdated', loc => {
