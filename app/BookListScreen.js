@@ -8,7 +8,7 @@ import moment from 'moment';
 import Constants from './Constants';
 import Db from './db';
 
-const dir = `${FileSystem.documentDirectory}Books/`;
+const dir = `${FileSystem.documentDirectoryPath}/Books/`;
 const server = Constants.emaanTrackerUrl + '/images/books/';
 
 export default class BookListScreen extends React.Component {
@@ -19,12 +19,9 @@ export default class BookListScreen extends React.Component {
   };
 
   async componentWillMount() {
-    try {
-      await FileSystem.downloadAsync('https://www.google.com/', FileSystem.documentDirectory + 'Books/google.html');
-      await FileSystem.downloadAsync(Constants.emaanTrackerUrl + '/book/meta', FileSystem.documentDirectory + 'Books/books.json');
-    } catch (e) {
-      console.log(e);
-    }
+    FileSystem.downloadFile({fromUrl: Constants.emaanTrackerUrl + '/book/meta', toFile: FileSystem.documentDirectoryPath + '/Books/books.json'}).promise(() => {
+      FileSystem.readFile(FileSystem.documentDirectoryPath + '/Books/books.json');
+    });
     FileSystem.readAsStringAsync(FileSystem.documentDirectory + 'Books/books.json').then(async content => {
       let books = JSON.parse(content);
       await this._downloadCover(books);

@@ -25,7 +25,7 @@ require('./Locale');
 import tips from './tips';
 import EMNotification from './EMNotification';
 import RssFeed from './RssFeed';
-import IntroScreen from './IntroScreen';
+//import IntroScreen from './IntroScreen';
 import { register, getToken } from './Registration';
 
 class Cell extends React.Component {

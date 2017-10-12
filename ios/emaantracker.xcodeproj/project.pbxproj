@@ -14,6 +14,7 @@
 		00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302E41ABCB9EE00DB3ED1 /* libRCTVibration.a */; };
 		00E356F31AD99517003FC87E /* emaantrackerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* emaantrackerTests.m */; };
 		09ABA7B51F8705E00021CC9E /* quran.db in Resources */ = {isa = PBXBuildFile; fileRef = 09ABA7B41F8705E00021CC9E /* quran.db */; };
+		09C1B3131F8CE0CA00352BA5 /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 008F07F21AC5B25A0029DE68 /* main.jsbundle */; };
 		0C41B3CFB01044E38EFC986B /* Oswald-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E2284B894416422A83FFE12F /* Oswald-Light.ttf */; };
 		0F9CB28541E9476DA5E6305B /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D6E16B4C0C6B407D9D044AFF /* Foundation.ttf */; };
 		133E29F31AD74F7200F7D852 /* libRCTLinking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C398B91ACF4ADC00677621 /* libRCTLinking.a */; };
@@ -43,7 +44,6 @@
 		3B9DB0F50059478AA4873338 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 133CB41A14864D62BA11CDC0 /* Entypo.ttf */; };
 		417E8CC504794A2D88692469 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C742EC048C54A9F8362340F /* libsqlite3.0.tbd */; };
 		4534B44E1F88DC1B00BE9476 /* libRCTPushNotification.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4534B4321F88DBF000BE9476 /* libRCTPushNotification.a */; };
-		45B9D6F91F8B722100E5D855 /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 008F07F21AC5B25A0029DE68 /* main.jsbundle */; };
 		45B9D7241F8B8E6200E5D855 /* assets in Resources */ = {isa = PBXBuildFile; fileRef = 45B9D7231F8B8E6100E5D855 /* assets */; };
 		4D0CA67100A049F1B2520E20 /* libRNLocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 43B3209C8A004F08AD511326 /* libRNLocation.a */; };
 		4D4A2EB4964F406A84472EF1 /* libRNFS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C74DD91D69BA4C3386FDF7B7 /* libRNFS.a */; };
@@ -1328,7 +1328,6 @@
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 				B3CC6FAE4571418AA8DA74E1 /* Oswald-Bold.ttf in Resources */,
-				45B9D6F91F8B722100E5D855 /* main.jsbundle in Resources */,
 				7C4EEA627F3742B3A9435182 /* Oswald-ExtraLight.ttf in Resources */,
 				0C41B3CFB01044E38EFC986B /* Oswald-Light.ttf in Resources */,
 				EE821A07A51847CE832ECAD8 /* Oswald-Medium.ttf in Resources */,
@@ -1345,6 +1344,7 @@
 				AC9292EF24344E60B40BC997 /* EvilIcons.ttf in Resources */,
 				590F3E8707FB48F3A54B3805 /* FontAwesome.ttf in Resources */,
 				0F9CB28541E9476DA5E6305B /* Foundation.ttf in Resources */,
+				09C1B3131F8CE0CA00352BA5 /* main.jsbundle in Resources */,
 				38F687A0E49744CDB14A0F8E /* Ionicons.ttf in Resources */,
 				89735A4E2520495A93B65510 /* MaterialIcons.ttf in Resources */,
 				F6E0750CAF6F4C23977FB159 /* Octicons.ttf in Resources */,

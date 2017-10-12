@@ -16,7 +16,7 @@ export default class SettingScreen extends React.Component {
   static navigationOptions = { header: null };
   state = {
     fontScale: 1,
-    prayTimes: ['04:00', '06:00', '12:00', '15:00', '18:00', '19:00'],
+    prayTimes: ['04:00', '06:00', '12:00', '15:00', '18:00', '19:00'].map(i => moment(i, 'HH:mm')),
     token: null,
     email: null,
     fullName: null,
@@ -24,12 +24,13 @@ export default class SettingScreen extends React.Component {
 
   componentWillMount() {
     const { setting } = this.props.screenProps;
-    this.setState(setting.values());
-    I18n.locale = setting.locale;
+    this.setState(setting.values(), () => {
+      I18n.locale = setting.locale;
+      this._updatePrayerTimes();
+    });
   }
 
   componentDidMount() {
-    this._updatePrayerTimes();
   }
 
   componentWillUnmount() {
@@ -238,7 +239,7 @@ export default class SettingScreen extends React.Component {
                   style={{
                     textAlign: 'right',
                     marginBottom: 5,
-                    fontFamily: 'quran',
+                    fontFamily: 'Amiri Quran',
                     fontSize: 24 * this.state.fontScale,
                   }}>
                   {'بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ'}

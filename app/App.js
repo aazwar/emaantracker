@@ -130,16 +130,15 @@ export default class App extends React.Component {
     }*/
   }
 
-  _checkBook() {
-    /*const bookDir = FileSystem.DocumentDirectoryPath + '/Books';
-    if (!FileSystem.exists(bookDir)) FileSystem.mkdir(bookDir);
-    if (!FileSystem.exists(`${bookDir}/books.json`)) {
-      FileSystem.downloadFile();
-      FileSystem.downloadAsync({
+  async _checkBook() {
+    const bookDir = FileSystem.DocumentDirectoryPath + '/Books';
+    if (!await FileSystem.exists(bookDir)) await FileSystem.mkdir(bookDir);
+    if (!await FileSystem.exists(`${bookDir}/books.json`)) {
+      FileSystem.downloadFile({
         fromUrl: Constants.emaanTrackerUrl + '/book/meta',
         toFile: bookDir + '/books.json',
       });
-    }*/
+    }
   }
 
   render() {
