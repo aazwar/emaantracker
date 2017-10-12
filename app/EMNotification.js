@@ -73,24 +73,22 @@ export default class EMNotification extends Storable {
     this.scheduled = this.scheduled.filter(s => s.fireDate > now);
   }
 
-  async initSchedule() {
-    await Notifications.cancelAllScheduledNotificationsAsync();
+  initSchedule() {
+    Notifications.cancelAllLocalNotifications();
     this.scheduled = [];
     this.repeated = [];
     const ninePM = moment().set({ hour: 21, minute: 0, second: 0 }).toDate();
     const title = 'Before you sleep';
-    const body = `Don't forget to have wudhu, pray witr, and check in your daily activity`;
-    const notification = {
-      title,
-      body,
-      data: ['check-in', title, body],
-    };
-    const notificationId = await Notifications.scheduleLocalNotificationAsync(notification, { time: ninePM, repeat: 'day' });
+    const message = `Don't forget to have wudhu, pray witr, and check in your daily activity`;
+    Notifications.localNotificationSchedule({
+      id: '1', title, message, date: ninePM, repeatType: 'day', 
+    })
     this.repeated.push({
+      id: '1',
       fireDate: ninePM,
       repeat: 'day',
-      notification,
-      notificationId,
+      title,
+      message
     });
   }
 
@@ -113,13 +111,8 @@ It's time for ${time} prayer, in order to keep your Emaan Status strong please t
 
 May Allah make us among people of Jannah`;
         const title = `${time} time!`;
-        const notification = {
-          title,
-          body,
-          data: ['reminder', title, body],
-        };
         if (prayTimes[i] > now) {
-          this.schedule(prayTimes[i].toDate(), notification);
+          this.schedule(prayTimes[i].toDate(), title, message, 'athan.mp3');
         }
       });
       cdate.add(1, 'days');
@@ -132,8 +125,11 @@ May Allah make us among people of Jannah`;
    * @param notification Notification
    */
 
-  async schedule(fireDate, notification) {
-    const notificationId = await Notifications.scheduleLocalNotificationAsync(notification, { time: fireDate });
-    this.scheduled.push({ fireDate, notification, notificationId });
+  schedule(fireDate, title, message, soundName) {
+    const id = `${this.scheduled.length + 1}`;
+    Notifications.localNotificationSchedule({
+      id, title, message, soundName
+    })
+    this.scheduled.push({ id, fireDate, title, message, soundName });
   }
 }

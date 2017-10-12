@@ -128,8 +128,8 @@ class HomeScreen extends React.Component {
   componentWillUnmount() {}
 
   notificationHandler(notification) {
-    let [type, title, body] = notification.data;
-    Alert.alert(title, body, [{ text: 'OK' }], { cancelable: false });
+    let [type, title, message] = notification.data;
+    Alert.alert(title, message, [{ text: 'OK' }], { cancelable: false });
   }
 
   _getLocation() {

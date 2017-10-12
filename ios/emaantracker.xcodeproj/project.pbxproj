@@ -45,6 +45,7 @@
 		417E8CC504794A2D88692469 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C742EC048C54A9F8362340F /* libsqlite3.0.tbd */; };
 		4534B44E1F88DC1B00BE9476 /* libRCTPushNotification.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4534B4321F88DBF000BE9476 /* libRCTPushNotification.a */; };
 		45B9D7241F8B8E6200E5D855 /* assets in Resources */ = {isa = PBXBuildFile; fileRef = 45B9D7231F8B8E6100E5D855 /* assets */; };
+		45D71B851F8FA74400038F96 /* athan.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 45D71B5B1F8FA74400038F96 /* athan.mp3 */; };
 		4D0CA67100A049F1B2520E20 /* libRNLocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 43B3209C8A004F08AD511326 /* libRNLocation.a */; };
 		4D4A2EB4964F406A84472EF1 /* libRNFS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C74DD91D69BA4C3386FDF7B7 /* libRNFS.a */; };
 		590F3E8707FB48F3A54B3805 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0698A263DCCA4F728A8E6774 /* FontAwesome.ttf */; };
@@ -415,6 +416,7 @@
 		44935E3C1F0545598E20A89C /* noorehira.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = noorehira.ttf; path = ../app/assets/fonts/noorehira.ttf; sourceTree = "<group>"; };
 		4534B41D1F88DBF000BE9476 /* RCTPushNotification.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTPushNotification.xcodeproj; path = "../node_modules/react-native/Libraries/PushNotificationIOS/RCTPushNotification.xcodeproj"; sourceTree = "<group>"; };
 		45B9D7231F8B8E6100E5D855 /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = assets; sourceTree = "<group>"; };
+		45D71B5B1F8FA74400038F96 /* athan.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = athan.mp3; path = ../app/assets/athan.mp3; sourceTree = "<group>"; };
 		45EDF0BE91A941C4991C15AE /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/native-base/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
 		4FE8327DF79A4608860D929F /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/native-base/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
 		5920D5E0745446D6A5821708 /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/native-base/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
@@ -792,6 +794,7 @@
 		E99584A8ABDA4AC9BD73A4D1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				45D71B5B1F8FA74400038F96 /* athan.mp3 */,
 				45B9D7231F8B8E6100E5D855 /* assets */,
 				09ABA7B41F8705E00021CC9E /* quran.db */,
 				840A9EF02E2C40A1972169AD /* Oswald-Bold.ttf */,
@@ -1342,6 +1345,7 @@
 				83F90FAF77164ADEB3AB99F9 /* quran.ttf in Resources */,
 				3B9DB0F50059478AA4873338 /* Entypo.ttf in Resources */,
 				AC9292EF24344E60B40BC997 /* EvilIcons.ttf in Resources */,
+				45D71B851F8FA74400038F96 /* athan.mp3 in Resources */,
 				590F3E8707FB48F3A54B3805 /* FontAwesome.ttf in Resources */,
 				0F9CB28541E9476DA5E6305B /* Foundation.ttf in Resources */,
 				09C1B3131F8CE0CA00352BA5 /* main.jsbundle in Resources */,

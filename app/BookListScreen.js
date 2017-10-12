@@ -8,7 +8,7 @@ import moment from 'moment';
 import Constants from './Constants';
 import Db from './db';
 
-const dir = `${FileSystem.documentDirectoryPath}/Books/`;
+const dir = `${FileSystem.DocumentDirectoryPath}/Books/`;
 const server = Constants.emaanTrackerUrl + '/images/books/';
 
 export default class BookListScreen extends React.Component {
@@ -19,12 +19,10 @@ export default class BookListScreen extends React.Component {
   };
 
   async componentWillMount() {
-    FileSystem.downloadFile({fromUrl: Constants.emaanTrackerUrl + '/book/meta', toFile: FileSystem.documentDirectoryPath + '/Books/books.json'}).promise(() => {
-      FileSystem.readFile(FileSystem.documentDirectoryPath + '/Books/books.json');
-    });
-    FileSystem.readAsStringAsync(FileSystem.documentDirectory + 'Books/books.json').then(async content => {
+    await FileSystem.downloadFile({fromUrl: Constants.emaanTrackerUrl + '/book/meta', toFile: dir + 'books.json'}).promise;
+    FileSystem.readFile(dir + 'books.json').then(content => {      
       let books = JSON.parse(content);
-      await this._downloadCover(books);
+      this._downloadCover(books);
       this.setState({ loading: false, books });
     });
   }
@@ -36,9 +34,9 @@ export default class BookListScreen extends React.Component {
       .map(c => Object.keys(c).map(k => c[k]))
       .reduce((a, b) => a.concat(b), []);
     for (cover of fbooks.map(b => b.cover)) {
-      let info = await FileSystem.getInfoAsync(dir + cover);
-      if (!info.exists) {
-        await FileSystem.downloadAsync(server + cover, dir + cover);
+      console.log('Books:', dir, cover);
+      if (!await FileSystem.exists(dir + cover)) {
+        await FileSystem.downloadFile({fromUrl: server + cover, toFile: dir + cover}).promise;
       }
     }
     //Promise.all(covers).then(res => );
@@ -51,9 +49,10 @@ export default class BookListScreen extends React.Component {
       await FileSystem.downloadAsync(server + book.file, dir + book.file);
       this.setState({ loading: false });
     }*/
-    const url = 'http://docs.google.com/viewer?embedded=true&url=' + encodeURI(server + book.file);
+    const url = 'https://docs.google.com/viewer?embedded=true&url=' + encodeURI(server + book.file);
+    Linking.openURL(url).catch(err => console.error('An error occurred', err));    
     //console.log(url);
-    this.props.navigation.navigate('BookScreen', { url });
+    //this.props.navigation.navigate('BookScreen', { url });
     /*WebBrowser.openBrowserAsync(url);*/
     let db = new Db();
     let pages = 1;
@@ -130,7 +129,7 @@ export default class BookListScreen extends React.Component {
                         <Col key={i}>
                           {!_.isEmpty(book) &&
                             <Cell
-                              icon={{ uri: `${FileSystem.documentDirectory}Books/${encodeURI(book.cover)}` }}
+                              icon={{ uri: `${dir}${encodeURI(book.cover)}` }}
                               caption={book.title}
                               onPress={() => this._openBook(book)}
                             />}

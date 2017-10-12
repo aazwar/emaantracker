@@ -107,8 +107,6 @@ export default class App extends React.Component {
   }
 
   async _checkNotification() {
-    /*const { Permissions } = Expo;
-    Permissions.askAsync(Permissions.NOTIFICATIONS);
     let db = new Db();
     db.check();
     let status = await db.eman_status();
