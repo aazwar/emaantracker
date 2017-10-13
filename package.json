@@ -1,6 +1,6 @@
 {
-	"name": "emaantracker",
-	"version": "0.0.1",
+	"name": "Emaan Tracker",
+	"version": "1.1.0",
 	"private": true,
 	"scripts": {
 		"prettier": "prettier --write --print-width 130 --single-quote --jsx-bracket-same-line --trailing-comma es5 *.js app/*.js",

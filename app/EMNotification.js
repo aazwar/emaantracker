@@ -48,13 +48,11 @@ export default class EMNotification extends Storable {
   /**
     Scheduled notification Object:
   {
-    fireDate: Date
-    notification: {
-      title: String,
-      body: String,
-      data: String
-    },
-    notificationId
+    id: String,
+    date: Date,
+    title: String,
+    message: String,
+    soundName: String,
   }
    */
   scheduled = [];
@@ -70,7 +68,13 @@ export default class EMNotification extends Storable {
 
   clean() {
     let now = new Date();
-    this.scheduled = this.scheduled.filter(s => s.fireDate > now);
+    this.scheduled = this.scheduled.filter(s => s.date > now);
+  }
+
+  test() {
+    Notifications.localNotificationSchedule({
+      id: '124', title: 'Test', message: 'Test Message', date: new Date(Date.now() + (60 * 1000)), soundName: 'athan.mp3'
+    });
   }
 
   initSchedule() {
@@ -85,7 +89,7 @@ export default class EMNotification extends Storable {
     })
     this.repeated.push({
       id: '1',
-      fireDate: ninePM,
+      date: ninePM,
       repeat: 'day',
       title,
       message
@@ -96,7 +100,7 @@ export default class EMNotification extends Storable {
     let now = moment();
     let cdate;
     if (this.scheduled.length) {
-      cdate = moment(this.scheduled[this.scheduled.length - 1].fireDate).add(1, 'day').set({ hour: 0, minute: 0, second: 0 });
+      cdate = moment(this.scheduled[this.scheduled.length - 1].date).add(1, 'day').set({ hour: 0, minute: 0, second: 0 });
     } else {
       cdate = moment().set({ hour: 0, minute: 0, second: 0 });
     }
@@ -106,7 +110,7 @@ export default class EMNotification extends Storable {
       let [date, month, year] = [cdate.get('date'), cdate.get('month'), cdate.get('year')];
       ['Fajr', 'Dhuhr', 'Asr', 'Maghrib', 'Isha'].map((time, i) => {
         prayTimes[i].set({ date, month, year });
-        let body = `Assalamu Alaykum Brother/Sister${setting.fullName ? ' ' + setting.fullName : ''},
+        const message = `Assalamu Alaykum Brother/Sister${setting.fullName ? ' ' + setting.fullName : ''},
 It's time for ${time} prayer, in order to keep your Emaan Status strong please take time and pray. 
 
 May Allah make us among people of Jannah`;
@@ -121,15 +125,15 @@ May Allah make us among people of Jannah`;
 
   /**
    * Schedule a notification
-   * @param Date fireDate
+   * @param Date date
    * @param notification Notification
    */
 
-  schedule(fireDate, title, message, soundName) {
+  schedule(date, title, message, soundName) {
     const id = `${this.scheduled.length + 1}`;
     Notifications.localNotificationSchedule({
-      id, title, message, soundName
+      id, date, title, message, soundName
     })
-    this.scheduled.push({ id, fireDate, title, message, soundName });
+    this.scheduled.push({ id, date, title, message, soundName });
   }
 }

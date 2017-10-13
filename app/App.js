@@ -74,6 +74,7 @@ export default class App extends React.Component {
     Promise.all([
       this.setting.load(),
       this._checkBook(),
+      this._updateLocation()
     ]).then(() => this.setState({ ready: true }));
   }
 
@@ -93,12 +94,13 @@ export default class App extends React.Component {
   }
 
   _updateLocation() {
-    navigator.geolocation.requestAuthorization();
+    //navigator.geolocation.requestAuthorization();
     navigator.geolocation.getCurrentPosition(
       loc => {
         this.setting.location = [loc.coords.latitude, loc.coords.longitude];
+        this._checkNotification();
         Geocoder.geocodePosition({ lat: this.setting.location[0], lng: this.setting.location[1] }).then(geo => {
-          setting.reverseGeocode = geo;
+          this.setting.reverseGeocode = geo;
         });
       },
       error => alert(error.message),
@@ -113,19 +115,9 @@ export default class App extends React.Component {
     let setting = this.setting;
     let notification = this.notification;
     await notification.load();
-
+    notification.test();
     await notification.initSchedule();
     await notification.schedulePrayerNotification(setting, 3);
-
-    /*if (!notification.repeated.length) {
-      await notification.initSchedule();
-    }
-    if (notification.scheduled.length < 10) {
-      await notification.schedulePrayerNotification(setting, 3);
-    }*/
-    /*if (!setting.token) {
-      getToken(setting);
-    }*/
   }
 
   async _checkBook() {

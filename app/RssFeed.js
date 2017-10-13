@@ -45,7 +45,7 @@ export default class RssFeed extends React.Component {
     try {
       let rss = new Rss();
       await rss.load();
-      console.log('rss:', rss.items);
+      //console.log('rss:', rss.items);
       if (rss.items.length) {
         this.setState({ items: rss.items.slice(0, 3) });
       }
