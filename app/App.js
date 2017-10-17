@@ -74,7 +74,7 @@ export default class App extends React.Component {
     Promise.all([
       this.setting.load(),
       this._checkBook(),
-      this._updateLocation()
+      //this._updateLocation()
     ]).then(() => this.setState({ ready: true }));
   }
 

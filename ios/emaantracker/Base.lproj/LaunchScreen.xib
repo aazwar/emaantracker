@@ -19,15 +19,8 @@
                     <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </imageView>
-                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="IF5-Wk-6Dn">
-                    <rect key="frame" x="222" y="363" width="37" height="37"/>
-                </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-            <constraints>
-                <constraint firstItem="IF5-Wk-6Dn" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="IrC-TA-rtr"/>
-                <constraint firstAttribute="bottom" secondItem="IF5-Wk-6Dn" secondAttribute="bottom" constant="80" id="ic6-xa-RCJ"/>
-            </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="548" y="455"/>
