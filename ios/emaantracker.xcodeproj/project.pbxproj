@@ -417,6 +417,7 @@
 		44935E3C1F0545598E20A89C /* noorehira.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = noorehira.ttf; path = ../app/assets/fonts/noorehira.ttf; sourceTree = "<group>"; };
 		4534B41D1F88DBF000BE9476 /* RCTPushNotification.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTPushNotification.xcodeproj; path = "../node_modules/react-native/Libraries/PushNotificationIOS/RCTPushNotification.xcodeproj"; sourceTree = "<group>"; };
 		4570F9BF1F90D3F000F1A6E2 /* splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = splash.png; path = ../app/assets/splash.png; sourceTree = "<group>"; };
+		4598B8701F9789E600CF1DFB /* emaantracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = emaantracker.entitlements; path = emaantracker/emaantracker.entitlements; sourceTree = "<group>"; };
 		45B9D7231F8B8E6100E5D855 /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = assets; sourceTree = "<group>"; };
 		45D71B5B1F8FA74400038F96 /* athan.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = athan.mp3; path = ../app/assets/athan.mp3; sourceTree = "<group>"; };
 		45EDF0BE91A941C4991C15AE /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/native-base/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
@@ -624,6 +625,7 @@
 		13B07FAE1A68108700A75B9A /* emaantracker */ = {
 			isa = PBXGroup;
 			children = (
+				4598B8701F9789E600CF1DFB /* emaantracker.entitlements */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -918,6 +920,11 @@
 					};
 					13B07F861A680F5B00A75B9A = {
 						DevelopmentTeam = JGWX8WJ7R6;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -1540,6 +1547,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = emaantracker/emaantracker.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = JGWX8WJ7R6;
@@ -1568,6 +1576,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = emaantracker/emaantracker.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = JGWX8WJ7R6;
 				HEADER_SEARCH_PATHS = (

@@ -137,10 +137,8 @@ export default class Db {
   async load_salah_data(date) {
     let data = await this.select_query(`SELECT * FROM salah WHERE date = '${date}'`, []);
     if (data && data.length) {
-      let d = data[0];
-      data = Object.keys(d).map((k, i) => d[k]);
-      let salah = data.splice(1, 5);
-      let dhikr = data.splice(1, 5);
+      let salah = [1,2,3,4,5].map(i => data[0]['salah'+i]);
+      let dhikr = [1,2,3,4,5].map(i => data[0]['dhikr'+i]);
       return { salah, dhikr };
     } else {
       return { salah: [0, 0, 0, 0, 0], dhikr: [0, 0, 0, 0, 0] };
@@ -163,9 +161,7 @@ export default class Db {
   async load_quran_data(date) {
     let data = await this.select_query(`SELECT * FROM quran WHERE date = '${date}'`, []);
     if (data && data.length) {
-      let d = data[0];
-      data = Object.keys(d).map((k, i) => d[k]);
-      return data.splice(1, 5);
+      return [1,2,3,4,5].map(i => data[0]['quran'+i]);
     } else {
       return [0, 0, 0, 0, 0];
     }

@@ -20,9 +20,9 @@ export default class BookListScreen extends React.Component {
 
   async componentWillMount() {
     await FileSystem.downloadFile({fromUrl: Constants.emaanTrackerUrl + '/book/meta', toFile: dir + 'books.json'}).promise;
-    FileSystem.readFile(dir + 'books.json').then(content => {      
+    FileSystem.readFile(dir + 'books.json').then(async content => {      
       let books = JSON.parse(content);
-      this._downloadCover(books);
+      await this._downloadCover(books);
       this.setState({ loading: false, books });
     });
   }
@@ -34,7 +34,6 @@ export default class BookListScreen extends React.Component {
       .map(c => Object.keys(c).map(k => c[k]))
       .reduce((a, b) => a.concat(b), []);
     for (cover of fbooks.map(b => b.cover)) {
-      console.log('Books:', dir, cover);
       if (!await FileSystem.exists(dir + cover)) {
         await FileSystem.downloadFile({fromUrl: server + cover, toFile: dir + cover}).promise;
       }
