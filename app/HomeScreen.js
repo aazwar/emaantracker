@@ -122,7 +122,7 @@ class HomeScreen extends React.Component {
   }
 
   componentDidMount() {
-    this._getLocation();
+    //this._getLocation();
   }
 
   componentWillUnmount() {}
