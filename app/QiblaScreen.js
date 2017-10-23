@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Image, View, Dimensions, Text, DeviceEventEmitter } from 'react-native';
 import { Container, Content, Header, H1, H2, H3, Left, Right, Body, Button, Icon, Title } from 'native-base';
 import { Col, Row, Grid } from 'react-native-easy-grid';
-import { RNLocation as Location } from 'NativeModules';
+//import { RNLocation as Location } from 'NativeModules';
 import qibla from './qibla';
 
 export default class QiblaScreen extends React.Component {

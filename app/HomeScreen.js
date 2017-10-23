@@ -17,7 +17,7 @@ import { Col, Row, Grid } from 'react-native-easy-grid';
 import PopoverTooltip from 'react-native-popover-tooltip';
 import _ from 'lodash';
 import I18n from 'i18n-js';
-import { RNLocation as Location } from 'NativeModules';
+//import { RNLocation as Location } from 'NativeModules';
 import Geocoder from 'react-native-geocoder';
 
 import Db from './db';
