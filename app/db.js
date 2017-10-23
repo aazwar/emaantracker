@@ -6,7 +6,7 @@ const database = 'record.db';
 export default class Db {
   constructor() {
     this.db = SQLite.openDatabase(
-      { name: database, createFromLocation: 1, location: 'Library' },
+      { name: database, location: 'default' },
       () => {},
       err => {
         console.log('SQL Error: ' + err);

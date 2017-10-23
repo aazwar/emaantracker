@@ -239,7 +239,7 @@ export default class QuranScreen extends React.PureComponent {
     let w = Dimensions.get('window');
     let { setting } = this.props.screenProps;
     return (
-      <Image source={require('./assets/quran-bgLow.jpg')} style={{ width: w.width, flex: 1 }}>
+      <Image source={require('./assets/quran-bgLow.jpg')} style={{ width: w.width, flex: 1, resizeMode: 'stretch' }}>
         <Container>
           <Header
             style={{
@@ -315,7 +315,7 @@ class FooterAndroid extends React.Component {
             selectedValue={page}
             mode="dropdown"
             prompt="Select Page"
-            style={{ width: 100 }}
+            style={{ width: 100, color: 'white' }}
             onValueChange={page => setPage(page)}>
             {_.range(1, 604).map(i => <Picker.Item key={i} label={`${i}`} value={i} />)}
           </Picker>
@@ -323,7 +323,7 @@ class FooterAndroid extends React.Component {
             selectedValue={surahText.match(/\d+/)[0] - 1}
             mode="dropdown"
             prompt="Select Surah"
-            style={{ width: 210 }}
+            style={{ width: 210, color: 'white' }}
             onValueChange={value => setPage(surah[value][0])}>
             {this.pickerData.map((v, i) => <Picker.Item key={i} label={v} value={i} />)}
           </Picker>
