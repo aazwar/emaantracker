@@ -100,11 +100,12 @@ export default class App extends React.Component {
         this.setting.location = [loc.coords.latitude, loc.coords.longitude];
         this._checkNotification();
         Geocoder.geocodePosition({ lat: this.setting.location[0], lng: this.setting.location[1] }).then(geo => {
+          console.log(geo);
           this.setting.reverseGeocode = geo;
         });
       },
       error => alert(error.message),
-      { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 }
+      { enableHighAccuracy: false, timeout: 20000, maximumAge: 3600 * 1000 }
     );
   }
 

@@ -3,6 +3,7 @@ import { StyleSheet, Image, View, Dimensions, Text, DeviceEventEmitter } from 'r
 import { Container, Content, Header, H1, H2, H3, Left, Right, Body, Button, Icon, Title } from 'native-base';
 import { Col, Row, Grid } from 'react-native-easy-grid';
 //import { RNLocation as Location } from 'NativeModules';
+import RNHeading from 'react-native-heading';
 import qibla from './qibla';
 
 export default class QiblaScreen extends React.Component {
@@ -40,21 +41,22 @@ export default class QiblaScreen extends React.Component {
 
   async componentDidMount() {
     let { setting } = this.props.screenProps;
-    Location.requestAlwaysAuthorization();
-    Location.startUpdatingHeading();
     const position = { lat: setting.location[0], long: setting.location[1] };
     this.kabaDir = qibla.direction(position);
     this.setState({
       qibla: `${this.kabaDir.toFixed(1)}º`,
       position: `${position.lat.toFixed(7)},${position.long.toFixed(7)}`,
     });
-    this.subscription = DeviceEventEmitter.addListener('headingUpdated', data => {
-      this.magHeading = data.heading;
+    
+    RNHeading.start(1);
+    DeviceEventEmitter.addListener('headingUpdated', data => {
+      this.magHeading = data;
+      //console.log(`Data: ${data}, ${typeof data.heading}`);
       const rotate = 360 - this.magHeading;
       let qibla = this.kabaDir - this.magHeading;
       if (qibla < 0) qibla += 360;
       this.setState({
-        heading: `${this.magHeading.toFixed(1)}º`,
+        heading: `${this.magHeading}º`,
         direction: `${rotate.toFixed(1)} deg`,
         qiblaDir: `${qibla.toFixed(1)} deg`,
       });
@@ -62,8 +64,8 @@ export default class QiblaScreen extends React.Component {
   }
 
   componentWillUnmount() {
-    this.subscription.remove();
-    Location.stopUpdatingHeading();
+    RNHeading.stop();
+    DeviceEventEmitter.removeAllListeners('headingUpdated');
   }
 
   render() {
