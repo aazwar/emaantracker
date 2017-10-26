@@ -147,7 +147,10 @@ export default class PrayerTimeScreen extends React.Component {
 
   render() {
     let { setting } = this.props.screenProps;
-    let city = _.get(setting, 'reverseGeocode[0].subAdminArea') || _.get(setting, 'reverseGeocode[0].city') || _.get(setting, 'reverseGeocode[0].locality');
+    let city =
+      _.get(setting, 'reverseGeocode[0].subAdminArea') ||
+      _.get(setting, 'reverseGeocode[0].city') ||
+      _.get(setting, 'reverseGeocode[0].locality');
     let country = _.get(setting, 'reverseGeocode[0].country');
     return (
       <ImageBackground source={require('./assets/bg2.jpg')} style={{ flex: 1, width: w.width }}>

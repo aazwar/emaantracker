@@ -19,8 +19,8 @@ export default class BookListScreen extends React.Component {
   };
 
   async componentWillMount() {
-    await FileSystem.downloadFile({fromUrl: Constants.emaanTrackerUrl + '/book/meta', toFile: dir + 'books.json'}).promise;
-    FileSystem.readFile(dir + 'books.json').then(async content => {      
+    await FileSystem.downloadFile({ fromUrl: Constants.emaanTrackerUrl + '/book/meta', toFile: dir + 'books.json' }).promise;
+    FileSystem.readFile(dir + 'books.json').then(async content => {
       let books = JSON.parse(content);
       await this._downloadCover(books);
       this.setState({ loading: false, books });
@@ -35,7 +35,7 @@ export default class BookListScreen extends React.Component {
       .reduce((a, b) => a.concat(b), []);
     for (cover of fbooks.map(b => b.cover)) {
       if (!await FileSystem.exists(dir + cover)) {
-        await FileSystem.downloadFile({fromUrl: server + cover, toFile: dir + cover}).promise;
+        await FileSystem.downloadFile({ fromUrl: server + cover, toFile: dir + cover }).promise;
       }
     }
     //Promise.all(covers).then(res => );
@@ -49,7 +49,7 @@ export default class BookListScreen extends React.Component {
       this.setState({ loading: false });
     }*/
     const url = 'https://docs.google.com/viewer?embedded=true&url=' + encodeURI(server + book.file);
-    Linking.openURL(url).catch(err => console.error('An error occurred', err));    
+    Linking.openURL(url).catch(err => console.error('An error occurred', err));
     //console.log(url);
     //this.props.navigation.navigate('BookScreen', { url });
     /*WebBrowser.openBrowserAsync(url);*/

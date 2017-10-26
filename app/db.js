@@ -1,5 +1,7 @@
 import SQLite from 'react-native-sqlite-storage';
 import moment from 'moment';
+import FileSystem from 'react-native-fs';
+import Setting from './Setting';
 
 const database = 'record.db';
 
@@ -14,8 +16,8 @@ export default class Db {
     );
   }
 
-  check() {
-    this.db.transaction(async tx => {
+  async check() {
+    await this.db.transaction(async tx => {
       /*
         Salah:
         null = no input
@@ -102,6 +104,33 @@ export default class Db {
     });
   }
 
+  async migrate() {
+    const oldDb = FileSystem.DocumentDirectoryPath + '/SQLite/record.db';
+    console.log(`migrating old db: ${oldDb}`);
+    let execsql = async (db, sql, params) => {
+      return await db.transaction(async tx => {
+        tx.executeSql(
+          sql,
+          params,
+          (_, { insertId, rowsAffected }) => [insertId, rowsAffected],
+          (_, err) => console.log(`Err: sql=${sql}, params=${params}\n${err}`)
+        );
+      });
+    };
+    if (await FileSystem.exists(oldDb)) {
+      SQLite.openDatabase({ name: database, location: 'default' }, db => {
+        SQLite.openDatabase({ name: 'odb', createFromLocation: oldDb }, db => {
+          db.attach(database, 'cdb', async () => {
+            await execsql(db, 'INSERT OR IGNORE into cdb.salah SELECT * FROM salah');
+            await execsql(db, 'INSERT OR IGNORE into cdb.quran SELECT * FROM quran');
+            await execsql(db, 'INSERT OR IGNORE into cdb.daily_activity SELECT * FROM daily_activity');
+            await execsql(db, 'INSERT OR IGNORE into cdb.monthly_activity SELECT * FROM monthly_activity');
+          });
+        });
+      });
+    }
+  }
+
   async select_query(sql, params) {
     return await new Promise(resolve => {
       this.db.transaction(async tx => {
@@ -137,8 +166,8 @@ export default class Db {
   async load_salah_data(date) {
     let data = await this.select_query(`SELECT * FROM salah WHERE date = '${date}'`, []);
     if (data && data.length) {
-      let salah = [1,2,3,4,5].map(i => data[0]['salah'+i]);
-      let dhikr = [1,2,3,4,5].map(i => data[0]['dhikr'+i]);
+      let salah = [1, 2, 3, 4, 5].map(i => data[0]['salah' + i]);
+      let dhikr = [1, 2, 3, 4, 5].map(i => data[0]['dhikr' + i]);
       return { salah, dhikr };
     } else {
       return { salah: [0, 0, 0, 0, 0], dhikr: [0, 0, 0, 0, 0] };
@@ -161,7 +190,7 @@ export default class Db {
   async load_quran_data(date) {
     let data = await this.select_query(`SELECT * FROM quran WHERE date = '${date}'`, []);
     if (data && data.length) {
-      return [1,2,3,4,5].map(i => data[0]['quran'+i]);
+      return [1, 2, 3, 4, 5].map(i => data[0]['quran' + i]);
     } else {
       return [0, 0, 0, 0, 0];
     }

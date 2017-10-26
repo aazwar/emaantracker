@@ -21,4 +21,5 @@ export default class Setting extends Storable {
   reverseGeocode = [];
   intro = true;
   status = 2;
+  doneDbMigration = false;
 }

@@ -30,8 +30,7 @@ export default class SettingScreen extends React.Component {
     });
   }
 
-  componentDidMount() {
-  }
+  componentDidMount() {}
 
   componentWillUnmount() {
     const { setting } = this.props.screenProps;

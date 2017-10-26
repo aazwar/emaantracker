@@ -73,7 +73,11 @@ export default class EMNotification extends Storable {
 
   test() {
     Notifications.localNotificationSchedule({
-      id: '124', title: 'Test', message: 'Test Message', date: new Date(Date.now() + (60 * 1000)), soundName: 'athan.mp3'
+      id: '124',
+      title: 'Test',
+      message: 'Test Message',
+      date: new Date(Date.now() + 60 * 1000),
+      soundName: 'athan.mp3',
     });
   }
 
@@ -85,14 +89,18 @@ export default class EMNotification extends Storable {
     const title = 'Before you sleep';
     const message = `Don't forget to have wudhu, pray witr, and check in your daily activity`;
     Notifications.localNotificationSchedule({
-      id: '1', title, message, date: ninePM, repeatType: 'day', 
-    })
+      id: '1',
+      title,
+      message,
+      date: ninePM,
+      repeatType: 'day',
+    });
     this.repeated.push({
       id: '1',
       date: ninePM,
       repeat: 'day',
       title,
-      message
+      message,
     });
   }
 
@@ -132,8 +140,12 @@ May Allah make us among people of Jannah`;
   schedule(date, title, message, soundName) {
     const id = `${this.scheduled.length + 1}`;
     Notifications.localNotificationSchedule({
-      id, date, title, message, soundName
-    })
+      id,
+      date,
+      title,
+      message,
+      soundName,
+    });
     this.scheduled.push({ id, date, title, message, soundName });
   }
 }

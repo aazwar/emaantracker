@@ -71,11 +71,9 @@ export default class App extends React.Component {
     super();
     this.setting = new Setting();
     this.notification = new EMNotification();
-    Promise.all([
-      this.setting.load(),
-      this._checkBook(),
-      this._updateLocation()
-    ]).then(() => this.setState({ ready: true }));
+    Promise.all([this.setting.load(), this._checkBook(), this._updateLocation()]).then(() =>
+      this.setState({ ready: true }, () => this._checkNotification())
+    );
   }
 
   componentDidMount() {
@@ -100,7 +98,6 @@ export default class App extends React.Component {
         this.setting.location = [loc.coords.latitude, loc.coords.longitude];
         this._checkNotification();
         Geocoder.geocodePosition({ lat: this.setting.location[0], lng: this.setting.location[1] }).then(geo => {
-          console.log(geo);
           this.setting.reverseGeocode = geo;
         });
       },
@@ -110,10 +107,18 @@ export default class App extends React.Component {
   }
 
   async _checkNotification() {
-    let db = new Db();
-    db.check();
-    let status = await db.eman_status();
     let setting = this.setting;
+    let db = new Db();
+    await db.check();
+    if (!setting.doneDbMigration) {
+      setTimeout(() => {
+        db.migrate();
+        setting.doneDbMigration = true;
+        setting.store();
+      }, 500);
+    }
+
+    let status = await db.eman_status();
     let notification = this.notification;
     await notification.load();
     notification.test();

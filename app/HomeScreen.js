@@ -237,7 +237,7 @@ class HomeScreen extends React.Component {
           </Content>
           <Footer
             style={{ backgroundColor: 'transparent', height: 120, borderColor: 'transparent', borderWidth: 0, elevation: 0 }}>
-            <ImageBackground source={require('./assets/footer-bg.png')} style={{ height: 120, width: w.width}}>
+            <ImageBackground source={require('./assets/footer-bg.png')} style={{ height: 120, width: w.width }}>
               <RssFeed />
             </ImageBackground>
           </Footer>

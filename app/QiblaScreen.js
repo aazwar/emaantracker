@@ -47,7 +47,7 @@ export default class QiblaScreen extends React.Component {
       qibla: `${this.kabaDir.toFixed(1)}º`,
       position: `${position.lat.toFixed(7)},${position.long.toFixed(7)}`,
     });
-    
+
     RNHeading.start(1);
     DeviceEventEmitter.addListener('headingUpdated', data => {
       this.magHeading = data;
